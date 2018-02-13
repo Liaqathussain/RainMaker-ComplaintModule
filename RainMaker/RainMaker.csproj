@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0DB40FE-53BB-45E7-BFF4-7329C24C0813}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RainMaker</RootNamespace>
+    <AssemblyName>RainMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>E:\Sami Abbas\Current Multinet Project\MultinetRainmaker\RainMaker\bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Classes\utilities.vb" />
+    <Content Include="ComplainManagement\ComplainForward.aspx" />
+    <Content Include="ComplainManagement\ComplainSolve.aspx" />
+    <Content Include="ComplainManagement\ComplaintClose.aspx" />
+    <Content Include="ComplainManagement\ComplainForm.aspx" />
+    <Content Include="ComplainManagement\ComplainManager.aspx" />
+    <Content Include="ComplainManagement\MultipleComplainForm.aspx" />
+    <Content Include="ComplainManagement\OMTeamEscalation.aspx" />
+    <Content Include="ComplainManagement\SearchCircuits.aspx" />
+    <Content Include="ComplainManagement\SearchingCriterion.aspx" />
+    <Content Include="ComplainManagement\ViewFiberDetails.aspx" />
+    <Content Include="ComplainManagement\ViewHistory.aspx" />
+    <Content Include="ComplainManagement\DownloadExcelFile.aspx" />
+    <Content Include="Dashboard\ComplaintAnalysis.aspx" />
+    <Content Include="Dashboard\CustomerAnalysis.aspx" />
+    <Content Include="Dashboard\OrderBook.aspx" />
+    <Content Include="Dashboard\Revenue.aspx" />
+    <Content Include="Dashboard\SmartSearch.aspx" />
+    <Content Include="Images\1.png" />
+    <Content Include="Images\2.png" />
+    <Content Include="Images\3.png" />
+    <Content Include="Images\4.png" />
+    <Content Include="Images\5.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\complain-icon.png" />
+    <Content Include="Images\default.png" />
+    <Content Include="Images\download.png" />
+    <Content Include="Images\home-icon.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_rainmaker.png" />
+    <Content Include="Images\MMIcons\bss-administration.png" />
+    <Content Include="Images\MMIcons\circuit-provisioning.png" />
+    <Content Include="Images\MMIcons\complain management.png" />
+    <Content Include="Images\MMIcons\cpm administration.png" />
+    <Content Include="Images\MMIcons\Dc Circuit.png" />
+    <Content Include="Images\MMIcons\fll.png" />
+    <Content Include="Images\MMIcons\internation_complains.png" />
+    <Content Include="Images\MMIcons\NRF.png" />
+    <Content Include="Images\MMIcons\Reports.png" />
+    <Content Include="Images\MMIcons\Sales.png" />
+    <Content Include="Images\MMIcons\Services provisioning.png" />
+    <Content Include="Images\MMIcons\signup.png" />
+    <Content Include="Images\nrf-icon.png" />
+    <Content Include="Images\pencil.png" />
+    <Content Include="Images\rm_logo.png" />
+    <Content Include="Images\SaveIcon.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\canvasjs.min.js" />
+    <Content Include="Scripts\js\index.js" />
+    <Content Include="Scripts\js\jquery.js" />
+    <Content Include="Scripts\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Scripts\js\plugins\flot\flot-data.js" />
+    <Content Include="Scripts\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Scripts\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\js\plugins\morris\morris-data.js" />
+    <Content Include="Scripts\js\plugins\morris\morris.js" />
+    <Content Include="Scripts\js\plugins\morris\morris.min.js" />
+    <Content Include="Scripts\js\plugins\morris\raphael.min.js" />
+    <None Include="Service References\BSS_ServiceLocal\BSS_Service.disco" />
+    <None Include="Service References\BSS_ServiceLocal\configuration91.svcinfo" />
+    <None Include="Service References\BSS_ServiceLocal\configuration.svcinfo" />
+    <None Include="Service References\BSS_ServiceLocal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SMS\DepartmentSMS.aspx" />
+    <Content Include="SMS\SingleSMS.aspx" />
+    <Content Include="UserControls\cntBrowsingDeadIssue.ascx" />
+    <Content Include="UserControls\cntComplainHistory.ascx" />
+    <Content Include="UserControls\cntemailIsuee.ascx" />
+    <Content Include="UserControls\cntIntial_linkDownDrops.ascx" />
+    <Content Include="UserControls\cntServiceRequest.ascx" />
+    <Content Include="UserControls\cntviewcomphist.ascx" />
+    <Content Include="UserControls\cntViewCustomerInfromation.ascx" />
+    <Content Include="UserControls\cntWebIssue.ascx" />
+    <Content Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Service References\BSS_ServiceLocal\BSS_Service.wsdl" />
+    <None Include="Service References\BSS_Service\BSS_Service.disco" />
+    <None Include="Service References\BSS_Service\configuration91.svcinfo" />
+    <None Include="Service References\BSS_Service\configuration.svcinfo" />
+    <None Include="Service References\BSS_Service\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Styles\css\bootstrap-rtl.css" />
+    <Content Include="Styles\css\bootstrap-rtl.min.css" />
+    <Content Include="Styles\css\bootstrap.css" />
+    <Content Include="Styles\css\bootstrap.min.css" />
+    <Content Include="Styles\css\cover.css" />
+    <Content Include="Styles\css\dashboard.css" />
+    <Content Include="Styles\css\font-awesome.min.css" />
+    <Content Include="Styles\css\plugins\morris.css" />
+    <Content Include="Styles\css\sb-admin-rtl.css" />
+    <Content Include="Styles\css\sb-admin.css" />
+    <Content Include="Styles\css\signin.css" />
+    <Content Include="Styles\custom_theme.css" />
+    <Content Include="Styles\font-awesome\css\font-awesome.css" />
+    <Content Include="Styles\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Login.aspx" />
+    <Content Include="Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\BL.cs" />
+    <Compile Include="Classes\clsCreateAccount.cs" />
+    <Compile Include="Classes\clsCreateContact.cs" />
+    <Compile Include="Classes\clsCreatePartner.cs" />
+    <Compile Include="Classes\clsDBAccess.cs" />
+    <Compile Include="Classes\clsGeneralFunction.cs" />
+    <Compile Include="Classes\clsInfraCosting.cs" />
+    <Compile Include="Classes\clsMap.cs" />
+    <Compile Include="Classes\clsMethodCalling.cs" />
+    <Compile Include="Classes\clsNRFView.cs" />
+    <Compile Include="Classes\clsNRFWithOpportunity.cs" />
+    <Compile Include="Classes\clsOpportunity.cs" />
+    <Compile Include="Classes\clsTAF.cs" />
+    <Compile Include="Classes\Cls_Territory.cs" />
+    <Compile Include="Classes\CreateExcelFile.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainForward.aspx.cs">
+      <DependentUpon>ComplainForward.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainForward.aspx.designer.cs">
+      <DependentUpon>ComplainForward.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainSolve.aspx.cs">
+      <DependentUpon>ComplainSolve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainSolve.aspx.designer.cs">
+      <DependentUpon>ComplainSolve.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplaintClose.aspx.cs">
+      <DependentUpon>ComplaintClose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplaintClose.aspx.designer.cs">
+      <DependentUpon>ComplaintClose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainForm.aspx.cs">
+      <DependentUpon>ComplainForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainForm.aspx.designer.cs">
+      <DependentUpon>ComplainForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainManager.aspx.cs">
+      <DependentUpon>ComplainManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ComplainManager.aspx.designer.cs">
+      <DependentUpon>ComplainManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\MultipleComplainForm.aspx.cs">
+      <DependentUpon>MultipleComplainForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\MultipleComplainForm.aspx.designer.cs">
+      <DependentUpon>MultipleComplainForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\OMTeamEscalation.aspx.cs">
+      <DependentUpon>OMTeamEscalation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\OMTeamEscalation.aspx.designer.cs">
+      <DependentUpon>OMTeamEscalation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\SearchCircuits.aspx.cs">
+      <DependentUpon>SearchCircuits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\SearchCircuits.aspx.designer.cs">
+      <DependentUpon>SearchCircuits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\SearchingCriterion.aspx.cs">
+      <DependentUpon>SearchingCriterion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\SearchingCriterion.aspx.designer.cs">
+      <DependentUpon>SearchingCriterion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\ViewFiberDetails.aspx.cs">
+      <DependentUpon>ViewFiberDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ViewFiberDetails.aspx.designer.cs">
+      <DependentUpon>ViewFiberDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\ViewHistory.aspx.cs">
+      <DependentUpon>ViewHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\ViewHistory.aspx.designer.cs">
+      <DependentUpon>ViewHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainManagement\DownloadExcelFile.aspx.cs">
+      <DependentUpon>DownloadExcelFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplainManagement\DownloadExcelFile.aspx.designer.cs">
+      <DependentUpon>DownloadExcelFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\ComplaintAnalysis.aspx.cs">
+      <DependentUpon>ComplaintAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ComplaintAnalysis.aspx.designer.cs">
+      <DependentUpon>ComplaintAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\CustomerAnalysis.aspx.cs">
+      <DependentUpon>CustomerAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\CustomerAnalysis.aspx.designer.cs">
+      <DependentUpon>CustomerAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\OrderBook.aspx.cs">
+      <DependentUpon>OrderBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\OrderBook.aspx.designer.cs">
+      <DependentUpon>OrderBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\Revenue.aspx.cs">
+      <DependentUpon>Revenue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Revenue.aspx.designer.cs">
+      <DependentUpon>Revenue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\SmartSearch.aspx.cs">
+      <DependentUpon>SmartSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SmartSearch.aspx.designer.cs">
+      <DependentUpon>SmartSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Site2.Master.cs">
+      <DependentUpon>Form_Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Site2.Master.designer.cs">
+      <DependentUpon>Form_Site2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms_Site.Master.cs">
+      <DependentUpon>MainForms_Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainForms_Site.Master.designer.cs">
+      <DependentUpon>MainForms_Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BSS_ServiceLocal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BSS_Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SMS\DepartmentSMS.aspx.cs">
+      <DependentUpon>DepartmentSMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SMS\DepartmentSMS.aspx.designer.cs">
+      <DependentUpon>DepartmentSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SMS\SingleSMS.aspx.cs">
+      <DependentUpon>SingleSMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SMS\SingleSMS.aspx.designer.cs">
+      <DependentUpon>SingleSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntBrowsingDeadIssue.ascx.cs">
+      <DependentUpon>cntBrowsingDeadIssue.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntBrowsingDeadIssue.ascx.designer.cs">
+      <DependentUpon>cntBrowsingDeadIssue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntComplainHistory.ascx.cs">
+      <DependentUpon>cntComplainHistory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntComplainHistory.ascx.designer.cs">
+      <DependentUpon>cntComplainHistory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntemailIsuee.ascx.cs">
+      <DependentUpon>cntemailIsuee.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntemailIsuee.ascx.designer.cs">
+      <DependentUpon>cntemailIsuee.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntIntial_linkDownDrops.ascx.cs">
+      <DependentUpon>cntIntial_linkDownDrops.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntIntial_linkDownDrops.ascx.designer.cs">
+      <DependentUpon>cntIntial_linkDownDrops.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntServiceRequest.ascx.cs">
+      <DependentUpon>cntServiceRequest.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntServiceRequest.ascx.designer.cs">
+      <DependentUpon>cntServiceRequest.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntviewcomphist.ascx.cs">
+      <DependentUpon>cntviewcomphist.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntviewcomphist.ascx.designer.cs">
+      <DependentUpon>cntviewcomphist.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntViewCustomerInfromation.ascx.cs">
+      <DependentUpon>cntViewCustomerInfromation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntViewCustomerInfromation.ascx.designer.cs">
+      <DependentUpon>cntViewCustomerInfromation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cntWebIssue.ascx.cs">
+      <DependentUpon>cntWebIssue.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cntWebIssue.ascx.designer.cs">
+      <DependentUpon>cntWebIssue.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MainForms_Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Form_Site2.Master" />
+    <None Include="Service References\BSS_Service\BSS_Service.wsdl" />
+    <None Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
+    <None Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <None Include="Styles\font-awesome\fonts\fontawesome-webfont.woff" />
+    <None Include="Styles\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="Styles\font-awesome\less\bordered-pulled.less" />
+    <None Include="Styles\font-awesome\less\core.less" />
+    <None Include="Styles\font-awesome\less\fixed-width.less" />
+    <None Include="Styles\font-awesome\less\font-awesome.less" />
+    <None Include="Styles\font-awesome\less\icons.less" />
+    <None Include="Styles\font-awesome\less\larger.less" />
+    <None Include="Styles\font-awesome\less\list.less" />
+    <None Include="Styles\font-awesome\less\mixins.less" />
+    <None Include="Styles\font-awesome\less\path.less" />
+    <None Include="Styles\font-awesome\less\rotated-flipped.less" />
+    <None Include="Styles\font-awesome\less\spinning.less" />
+    <None Include="Styles\font-awesome\less\stacked.less" />
+    <None Include="Styles\font-awesome\less\variables.less" />
+    <None Include="Styles\font-awesome\scss\font-awesome.scss" />
+    <None Include="Styles\font-awesome\scss\_bordered-pulled.scss" />
+    <None Include="Styles\font-awesome\scss\_core.scss" />
+    <None Include="Styles\font-awesome\scss\_fixed-width.scss" />
+    <None Include="Styles\font-awesome\scss\_icons.scss" />
+    <None Include="Styles\font-awesome\scss\_larger.scss" />
+    <None Include="Styles\font-awesome\scss\_list.scss" />
+    <None Include="Styles\font-awesome\scss\_mixins.scss" />
+    <None Include="Styles\font-awesome\scss\_path.scss" />
+    <None Include="Styles\font-awesome\scss\_rotated-flipped.scss" />
+    <None Include="Styles\font-awesome\scss\_spinning.scss" />
+    <None Include="Styles\font-awesome\scss\_stacked.scss" />
+    <None Include="Styles\font-awesome\scss\_variables.scss" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BSS_ServiceLocal\" />
+    <WCFMetadataStorage Include="Service References\BSS_Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resorces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>18879</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

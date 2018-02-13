@@ -1,0 +1,83 @@
+.form-signin.signup {  max-width: 450px;} 
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-signin .form-signin-heading {
+    margin-bottom: 15px;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin label {
+    font-size: 12px;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: rgba(248, 248, 248, 0.85) !important;
+    border: 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65) !important;
+    border-radius: 0px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+.form-control::-moz-placeholder {
+color: rgba(248, 248, 248, 0.85) !important;
+}
+.form-control:-ms-input-placeholder {
+color: rgba(248, 248, 248, 0.85) !important;
+}
+.form-control::-webkit-input-placeholder {
+color: rgba(248, 248, 248, 0.85) !important;
+}
+.form-signin input[type="email"] {
+  margin-bottom: 10px !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;    
+  color: #f8f8f8 !important;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;    
+  color: #f8f8f8 !important;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: 10px !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;    
+  color: #f8f8f8 !important;
+}
+
+.form-control:focus {
+  border-color: #FF0000;
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(255, 0, 0, 0.6);
+}
+
+.form-control 
+{
+  border-color: #FF0000;
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(255, 0, 0, 0.6);
+}
+
+.password-security
+{
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
+    text-security: disc;
+}

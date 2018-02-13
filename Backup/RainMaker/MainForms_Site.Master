@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainForms_Site.master.cs" Inherits="RainMaker.MainForms_Site" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+    <head id="Head1" runat="server">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="icon" href="favicon.ico">
+        <title>Rain Maker</title>
+        <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+        <link href="Styles/css/sb-admin.css" rel="Stylesheet" type="text/css" />
+        <link href="Styles/css/bootstrap.css" rel="Stylesheet" type="text/css" />
+        <link href="Styles/css/dashboard.css" rel="Stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+       <%-- <link href="Styles/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+--%>
+        <!-- FOR CREATING CUSTOM BLUE THEME CONTROLS -->
+        <link href="Styles/custom_theme.css" rel="stylesheet" type="text/css" />
+
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light fixed-top">
+         <a class="nav navbar-nav navbar-right navbar-brand" href="#">
+         </a>
+         <span class="nav navbar-nav navbar-left">
+            <img class="logo" src="../Images/rm_logo.png">
+         </span>
+
+         <ul class="nav navbar-nav navbar-right">
+            <li>
+               <div class="inset">
+               </div>
+               <div class="inset">
+                  <asp:Image ID="userImage" class="userpic" runat="server" ></asp:Image>
+                  <span class="username"><asp:Label ID="lblName" runat="server" Text="label"></asp:Label></span> 
+                  <span class="designation"><asp:Label ID="lblDesignation" runat="server" Text="label"></asp:Label></span>
+                  <span class="logout"><a style="color:White" 'nav-link' href='../Login.aspx'>Log out</a></span>
+               </div>
+            </li>
+         </ul>
+
+      </nav>
+
+      <div class="container-fluid">
+
+             <div class="row">
+        
+         <nav class="hover navbar-fixed-left col-sm-2 col-md-2 navbar-fixed-side navbar-dark bg-blue sidebar-div" style="overflow-y:scroll;">
+            <ul id="NavBar" runat="server" class="nav nav-pills flex-column" >
+               
+            </ul>
+         </nav>
+       
+         <nav class="box col-sm-2 col-md-2 d-none d-sm-block bg-white navbar-dark sidebar bd-sidebar flex-column-1">
+            <ul id="NavChild" runat="server" class="nav nav-pills flex-column sidebar-side-div">
+          
+            </ul>
+
+         </nav>
+
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+         </asp:ContentPlaceHolder>
+
+         </div>
+      </div>
+
+        <script src="/Scripts/bootstrap.js"></script>
+
+        <script src="/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+
+        <script  src="/Scripts/js/jquery.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            function reply_click(clicked_id) {
+              
+                oldID = localStorage.getItem("LastModified");
+                if (oldID != "") {
+
+                    $(oldID).hide();
+                }
+                NewID = "#Module_" + clicked_id;
+                $(NewID).show()
+                localStorage.setItem("LastModified", NewID);
+                }
+        </script>
+
+
+
+
+
+</body>
+
+</html>

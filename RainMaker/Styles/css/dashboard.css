@@ -1,0 +1,554 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body 
+{
+  padding-top: 0rem;
+}
+
+/*
+ * Typography
+ */
+
+h1 
+{
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+h5, .h5 
+{
+    font-size: 1.1rem;
+}
+
+.btn 
+{
+    font-weight: normal;
+    letter-spacing: 1px;
+    padding: 0.6rem 1.5rem;
+}
+
+.btn span 
+{  
+    font-weight: 300;
+}
+
+.btn-sm 
+{
+    padding: 0.3rem 0.75rem;
+}
+
+.btn-primary 
+{
+    color: #fff;
+    background: #45a2e3; /* Old browsers */
+    background: -moz-linear-gradient(top, #45a2e3 0%, #45a2e3 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #45a2e3 0%,#45a2e3 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #45a2e3 0%,#45a2e3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45a2e3', endColorstr='#3d83c5',GradientType=0 ); /* IE6-9 */
+    border-color: #4399db;
+}
+
+.btn-light 
+{    
+    color: #4399db;    
+    background-color: #f9f9f9;
+    border-color: #f9f9f9;
+}
+
+/*
+ * Sidebar
+ */
+
+.bg-blue 
+{ 
+    background: #45a2e3; /* Old browsers */
+    background: -moz-linear-gradient(top, #45a2e3 0%, #3d83c5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #45a2e3 0%,#3d83c5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #45a2e3 0%,#3d83c5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45a2e3', endColorstr='#3d83c5',GradientType=0 ); /* IE6-9 */
+}
+
+.fixed-top 
+{    
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 4px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding: 12px 6px 0px;
+    background-color: white;
+    border-radius: 0px;
+}
+
+.navbar-fixed-left 
+{
+    padding-left: 0px;
+    padding-right: 0px;
+    position: fixed;
+    border-radius: 0;
+    height: 93%;    
+    padding-top: 20px;
+}
+
+.navbar-fixed-left li 
+{
+    float: none;  /* Cancel default li float: left */
+    margin-bottom:1px
+}
+
+.navbar-fixed-left li .nav-link 
+{
+    color: #fff; text-align:center
+}
+
+.navbar-fixed-left li .nav-link .fa, .navbar-fixed-left li .nav-link img 
+{
+    display: inline-block;
+    font-size: 36px;
+    text-align: center;
+    clear: both;
+}
+
+.navbar-fixed-left li .nav-link span 
+{
+    display: block;
+    clear: both;
+}
+
+.navbar-fixed-left li .nav-link.active, .navbar-fixed-left li .nav-link:hover 
+{
+    background-color: #267dc2;
+}
+
+.navbar-fixed-left + .container 
+{
+
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu 
+{
+    margin-top: -50px;
+    margin-left: 140px;
+}
+
+.flex-column-1 
+{ 
+    margin-left: 6.333333%;
+}
+
+.sidebar 
+{
+   position: fixed;
+   border-radius: 0;
+   z-index: 3;
+   background: white;
+   height: 93.5%;
+   margin-top: 64px;
+   box-shadow: 2px 10px 2px rgba(12,13,14,0.35), 0 0px 0px rgba(12, 13, 14, 0.1), 0 4px 20px rgba(12, 13, 14, 0) , 0 1px 1px rgba(144, 144, 144, 0.27);
+}
+
+.sidebar .nav-item 
+{ 
+    margin-bottom:2px;
+}
+
+.sidebar .nav-link 
+{
+    color:#222;     
+    padding: 0.7rem 1.5rem;
+}
+
+.sidebar .nav-pills .nav-link.active, .sidebar .nav-pills .nav-link:hover 
+{  
+    border-right: 3px solid #389de3;
+    background: none; color:#222
+}
+
+.customer .rbDecorated 
+{
+    color: #fff;
+    background: #45a2e3;
+    background: -moz-linear-gradient(top, #45a2e3 0%, #3d83c5 100%);
+    background: -webkit-linear-gradient(top, #45a2e3 0%,#3d83c5 100%);
+    background: linear-gradient(to bottom, #45a2e3 0%,#3d83c5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45a2e3', endColorstr='#3d83c5',GradientType=0 );
+    border-color: #389de2;
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+    font-size: 12px;
+}
+
+.customer .form-inline .form-control 
+{
+    padding: 4px 12px;    
+    font-size: 13px;
+}
+
+.title-section 
+{
+    background: #45a2e3; /* Old browsers */
+    background: -moz-linear-gradient(top, #45a2e3 0%, #3d83c5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #45a2e3 0%,#3d83c5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #45a2e3 0%,#3d83c5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45a2e3', endColorstr='#3d83c5',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.title-section h5 
+{ 
+    margin-bottom:0px;
+}
+
+.customer .table thead th 
+{
+    font-size: 12px;
+    color: #7c7c7c;
+    padding: 0.30rem;
+    background: #f1f1f1;
+}
+
+.customer .table-striped tbody tr:nth-of-type(odd) 
+{ 
+    background: none;
+}
+
+.customer .table 
+{   
+    color: #7c7c7c;
+    border: 1px solid #dddddd;
+}
+
+.customer .table tbody 
+{
+    font-size: 12px;
+}
+
+/* Sidebar navigation */
+.sidebar 
+{
+    padding-left: 0;
+    padding-right: 0;    
+    padding-top: 25px;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link 
+{
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+ /* Placeholders */
+.placeholders 
+{
+  padding-bottom: 3rem;
+}
+
+.placeholder img 
+{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+ /* NRF page */
+.customer-detail .form-inline label 
+{
+    display: block !important;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #8d8d8d;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.customer-detail h5 
+{
+    color: #8d8d8d;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+	 
+.customer .form-control 
+{
+    padding: 10px 12px !important;
+    margin-bottom: 14px;
+    font-size: 11px !important;
+    height: 35px !important;
+}
+
+.customer select 
+{
+    width: 100%;
+    font-size: 12px;
+    border: 1px solid #696969;
+    color: dimgray;
+}
+
+.col
+{
+    margin-right: 15px;
+}
+
+.mb-md-2 {
+    padding-left: 1px;
+}
+
+@media (min-width: 992px) 
+{
+    .customer .rbDecorated 
+    {
+        max-width: 227px;
+    }	
+	
+}
+	
+@media (max-width: 575px) 
+{
+    .navbar-fixed-left 
+    {    
+        position: relative;
+    }
+    
+	.sidebar 
+    { 
+        position: relative; 
+        display: block !important;
+    }
+    
+    .flex-column-1 
+    {
+        margin-left:0;
+    }
+}	
+
+/* Zubair Added This CSS */
+
+@media (min-width: 575px)
+{
+    .sidebar-div 
+    {
+        width: 100px !important;
+        max-width:85px !important;
+        z-index: 9 !important;
+        position: fixed;
+        top:70px;
+    }
+    
+}
+
+@media (min-width: 768px)
+{
+    .sidebar-div 
+    {
+        width: 100px !important;
+        max-width:85px !important;
+        z-index: 9 !important;
+        position: fixed;
+        top:70px;
+    }
+}
+
+@media (max-width: 768px)
+{
+
+}
+
+@media only screen and (max-width: 1234px) and (min-width: 575px)
+{
+    .nav-link 
+    {
+        font-size: 10px !important;
+        position: relative !important;
+    }
+
+    .sidebar-side-div
+    {
+        margin-left: 25px !important;
+    }
+
+}
+
+
+
+@media (min-width: 768px) 
+{
+    .col-md-1 
+    {
+        -ms-flex: 0 0 8.333333%;
+        flex: 0 0 6.333333%;
+        max-width: 6.333333%;
+    }
+
+    .col-md-9 
+    {
+        -ms-flex: 0 0 75%;
+        flex: 0 0 77%;
+        max-width: 77%;
+    }
+
+    .customer 
+    {
+        margin-top: 45px;
+        margin-right: 80px;
+    }
+
+    .nav-link span
+    {
+        font-size: 1.1rem
+    }
+}
+
+/* RECENTLY ADDED */    
+@media screen and (min-width: 1920px) 
+{
+    .customer 
+    {
+        margin-top: lightgreen;
+    }
+    
+    .nav-link span
+    {
+        font-size: 1.1rem
+    }
+}
+
+.align-image-right
+{
+    
+    float: right !important;
+}
+
+.logout
+{
+    background-color: #45a2e3;
+    width: 110px;
+    height: 74px;
+    padding: 26px;
+    position: fixed;
+    right: 0;
+    top:0;
+    color: white;
+    cursor: pointer;
+    margin-right: -17px;
+    overflow: hidden;
+}
+
+.logout a
+{
+    text-decoration: none;
+}
+
+.logout::after {
+  background-color: #f00;
+  height: 100%;
+  left: -100%;
+  top: 0;
+  transform: skew(50deg);
+  transition-duration: 0.6s;
+  transform-origin: top left;
+  width: 0;
+}
+
+.logout:hover:after {
+  height: 160%;
+  width: 200%;
+}
+
+.logout::before,
+.logout::after {
+  background: rgba(135,206,250, 0.8);
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.logout:hover {
+  color: #2ecc71;
+}
+
+.user-details
+{
+    position: relative;
+    padding-right: 5em;
+}
+
+.user-labels
+{
+    
+}
+
+.username
+{
+    position: relative;
+    right: 64px;
+    top: 10px;
+}
+
+.designation
+{
+    position: fixed;
+    right: 157px;
+    top: 40px;
+    font-size: 12px;
+    color: darkgrey;
+}
+
+.userpic
+{
+    position: fixed;
+    right: 100px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.logo
+{
+    position: relative;
+    right: 0%;
+    top:-4px;
+    cursor: pointer;
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group 
+{
+    z-index: 2;
+    margin-left: -1px;
+    height: 34px;
+}
+
+.bg-light 
+{
+    background-color: #f8f9fa !important;
+}
