@@ -29,34 +29,43 @@ namespace RainMaker.ComplainManagement
         {
             try
             {
-                if (!IsPostBack)
+                if (this.Session["UserID"] != null)
                 {
-                    lblTicketNoAfterComplainGeneration.Visible = false;
-                    Session["SignupID"] = Convert.ToInt32(base.Request.QueryString["SignupID"]);
-                    SignupID = Convert.ToInt32(Session["SignupID"]);
-                    Session["ComplainID"] = Convert.ToInt32(base.Request.QueryString["ComplainID"]);
-                    Session["Flag"] = base.Request.QueryString["Flag"].ToString();
-                    Flag=Session["Flag"].ToString();
-                    ComplainID = Convert.ToInt32(Session["ComplainID"]) ;
-                    EngineerName = Session["Name"].ToString();
-
-                    UserID = Convert.ToInt16(Session["UserID"]);
-                    DeptID = Convert.ToInt16(Session["DepartmentID"]);
-                    RoleID = Convert.ToInt16(Session["RoleID"]);
-                    tbPerson.Text = Session["Name"].ToString();
-                    // loadCircuitCompleteDetails(Convert.ToInt16(Session["Complain_SignupID"]));
-                    loadCircuitCompleteDetails(SignupID);
-                    LoadMyCombos();
-                    EngineerName = Session["Name"].ToString();
-
-                    //DignoseFormSenerio(Session["Flag"].ToString(), Convert.ToInt32(Session["ComplainID"]));
-                    DignoseFormSenerio(Flag, ComplainID);
-                    if (DeptID == 66)
+                    if (!IsPostBack)
                     {
-                        cmbCaseCategory.SelectedValue = "3";
+                   
+                        lblTicketNoAfterComplainGeneration.Visible = false;
+                        Session["SignupID"] = Convert.ToInt32(base.Request.QueryString["SignupID"]);
+                        SignupID = Convert.ToInt32(Session["SignupID"]);
+                        Session["ComplainID"] = Convert.ToInt32(base.Request.QueryString["ComplainID"]);
+                        Session["Flag"] = base.Request.QueryString["Flag"].ToString();
+                        Flag=Session["Flag"].ToString();
+                        ComplainID = Convert.ToInt32(Session["ComplainID"]) ;
+                        EngineerName = Session["Name"].ToString();
+
+                        UserID = Convert.ToInt16(Session["UserID"]);
+                        DeptID = Convert.ToInt16(Session["DepartmentID"]);
+                        RoleID = Convert.ToInt16(Session["RoleID"]);
+                        tbPerson.Text = Session["Name"].ToString();
+                        // loadCircuitCompleteDetails(Convert.ToInt16(Session["Complain_SignupID"]));
+                        loadCircuitCompleteDetails(SignupID);
+                        LoadMyCombos();
+                        EngineerName = Session["Name"].ToString();
+
+                        //DignoseFormSenerio(Session["Flag"].ToString(), Convert.ToInt32(Session["ComplainID"]));
+                        DignoseFormSenerio(Flag, ComplainID);
+                        if (DeptID == 66)
+                        {
+                            cmbCaseCategory.SelectedValue = "3";
+                        }
                     }
+                    loadCircuitCompleteDetails(Convert.ToInt16(Session["SignupID"]));
                 }
-                loadCircuitCompleteDetails(Convert.ToInt16(Session["SignupID"]));
+                else
+                {
+                    Response.Redirect("/Login.aspx", true);
+                }
+
             }
             catch (Exception ex)
             {

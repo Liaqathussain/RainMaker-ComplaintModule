@@ -37,127 +37,134 @@ namespace RainMaker.ComplainManagement
         {
             try
             {
-
-                if (!IsPostBack)
+                if (this.Session["UserID"] != null)
                 {
-
-                    click = "Complain Forward";
-                    UserID = Convert.ToInt32(Session["UserID"]);
-                    RoleID = Convert.ToInt32(Session["RoleID"]);
-                    DeptID = Convert.ToInt32(Session["DepartmentID"]);
-
-                    EngineerName = Session["Name"].ToString();
-
-                    //complaintID=(Convert.ToInt32(Session["ComplainID"]));
-                    complaintID = Convert.ToInt32(base.Request.QueryString["ComplainID"]);
-
-                    //pnlComplainInProcessForm.Visible = true;
-
-
-                    dynamic dt = objBSS.GetComplainDetailByComplainID(complaintID);
-                    if (Convert.ToInt32(Session["DepartmentID"]).Equals(1) || Convert.ToInt32(Session["DepartmentID"]).Equals(3))
-                    {
-                        tbIPResponses.ReadOnly = false;
-                        PnlRequestType.Visible = true;
-                        //lblRequest.Visible = true;
-                        //RadioRequestTypeNE.Visible = true;
-                    }
-                    else
-                    {
-                        tbIPResponses.ReadOnly = true;
-                        PnlRequestType.Visible = false;
-                        //lblRequest.Visible = false;
-                    }
-                    LoadMyCombos(click);
-                    if (dt.Rows.Count > 0)
+                    if (!IsPostBack)
                     {
 
-                        ViewState["Pic1"] = dt.Rows[0]["Picture1"].ToString();
-                        ViewState["Pic2"] = dt.Rows[0]["Picture2"].ToString();
+                        click = "Complain Forward";
+                        UserID = Convert.ToInt32(Session["UserID"]);
+                        RoleID = Convert.ToInt32(Session["RoleID"]);
+                        DeptID = Convert.ToInt32(Session["DepartmentID"]);
 
-                        if (dt.Rows.Count < 2)
+                        EngineerName = Session["Name"].ToString();
+
+                        //complaintID=(Convert.ToInt32(Session["ComplainID"]));
+                        complaintID = Convert.ToInt32(base.Request.QueryString["ComplainID"]);
+
+                        //pnlComplainInProcessForm.Visible = true;
+
+
+                        dynamic dt = objBSS.GetComplainDetailByComplainID(complaintID);
+                        if (Convert.ToInt32(Session["DepartmentID"]).Equals(1) || Convert.ToInt32(Session["DepartmentID"]).Equals(3))
                         {
-                            cbCheckAll.Enabled = false;
+                            tbIPResponses.ReadOnly = false;
+                            PnlRequestType.Visible = true;
+                            //lblRequest.Visible = true;
+                            //RadioRequestTypeNE.Visible = true;
                         }
-
-
-                        objBL.LoadComplainStatus(cmbComplainStatus, "Follow");
-                        objBL.loadAssignedDepartment(cmbAssignedDepartment, "Follow");
-                        tbLoggedBy0.Text = Session["Name"].ToString();
-                        if (Convert.ToString(dt.Rows[0]["ETTR"]) != "")
+                        else
                         {
-                            RadDateTimePicker1.SelectedDate = (DateTime)dt.Rows[0]["ETTR"]; //(DateTime)Session["ETTR"];
+                            tbIPResponses.ReadOnly = true;
+                            PnlRequestType.Visible = false;
+                            //lblRequest.Visible = false;
                         }
-                        if (Convert.ToString(dt.Rows[0]["ETA"]) != "")
-                        {
-                            RadDateTimePicker3.SelectedDate = (DateTime)dt.Rows[0]["ETA"]; //(DateTime)Session["ETA"];
-                        }
-                        tbInternalRemarks.Text = dt.Rows[0]["Remarks"]; //Session["Remarks"].ToString();
-
-                        this.tbComplainTicketNo.Text = dt.Rows[0]["TicketNo"];
-                        tbComplainLoggedBy.Text = dt.Rows[0]["LoggedBy"];
-                        ComplainStatusID = dt.Rows[0]["ComplaintStatusID"];
-                        tbComplaintReceivedDT.Text = Convert.ToString(dt.Rows[0]["ComplaintReceivedDate"]);
-                        tbComplainStatus.Text = dt.Rows[0]["ComplainStatus"];
-
-                        cmbAssignedDepartment.Text = dt.Rows[0]["AssignDepartment"];
-                        cmbAssignedDepartment.SelectedValue = Convert.ToString(dt.Rows[0]["AssignedDeptID"]);
-
-                        cmbComplainStatus.Text = dt.Rows[0]["ComplainStatus"];
-                        cmbComplainStatus.SelectedValue = Convert.ToString(dt.Rows[0]["ComplaintStatusID"]);
-
-                        tbLoggedBy0.ReadOnly = true;
-
-                        TicketTypeID = Convert.ToInt32(dt.Rows[0]["TicketTypeID"]);
-                        if (TicketTypeID == 6)
-                        {
-                            cbCheckAll.Enabled = false;
-                        }
-
-                        if (ComplainStatusID.Equals(1) || ComplainStatusID.Equals(5))
-                        {
-                            btnUpdate.Visible = false;
-                        }
-
-                        if (ComplainStatusID.Equals("6"))
-                        {
-                            cmbAssignedDepartment.Enabled = false;
-                        }
-
-                        tbInternalRemarks.Text = dt.Rows[0]["Remarks"];
-                        if (Convert.ToString(dt.Rows[0]["LastUpdatedDate"]) != "")
-                        {
-                            AppDomain.CurrentDomain.SetData("LastUpdatedDate", Convert.ToDateTime(dt.Rows[0]["LastUpdatedDate"]));
-                        }
-                        if (dt.Rows[0]["ComplaintStatusID"] == 4)
+                        LoadMyCombos(click);
+                        if (dt.Rows.Count > 0)
                         {
 
-                            EngineerName = Session["Name"].ToString();
+                            ViewState["Pic1"] = dt.Rows[0]["Picture1"].ToString();
+                            ViewState["Pic2"] = dt.Rows[0]["Picture2"].ToString();
 
-                            tbComplainLoggedBy.Text = dt.Rows[0]["PersonGivenETA"];
-                            RadDateTimePicker3.SelectedDate = dt.Rows[0]["ETA"];
-                            RadDateTimePicker1.SelectedDate = dt.Rows[0]["ETTR"];
-                            tbIPResponses.Text = dt.Rows[0]["QueryResponse"];
-                            if (dt.Rows[0]["RequestTypeAtNE"] == "Support Request")
+                            if (dt.Rows.Count < 2)
                             {
-                                SupportRequest.Checked = true;
-                            }
-                            else if (dt.Rows[0]["RequestTypeAtNE"] == "Service Request")
-                            {
-                                ServiceRequest.Checked = true;
+                                cbCheckAll.Enabled = false;
                             }
 
+
+                            objBL.LoadComplainStatus(cmbComplainStatus, "Follow");
+                            objBL.loadAssignedDepartment(cmbAssignedDepartment, "Follow");
+                            tbLoggedBy0.Text = Session["Name"].ToString();
+                            if (Convert.ToString(dt.Rows[0]["ETTR"]) != "")
+                            {
+                                RadDateTimePicker1.SelectedDate = (DateTime)dt.Rows[0]["ETTR"]; //(DateTime)Session["ETTR"];
+                            }
+                            if (Convert.ToString(dt.Rows[0]["ETA"]) != "")
+                            {
+                                RadDateTimePicker3.SelectedDate = (DateTime)dt.Rows[0]["ETA"]; //(DateTime)Session["ETA"];
+                            }
+                            tbInternalRemarks.Text = dt.Rows[0]["Remarks"]; //Session["Remarks"].ToString();
+
+                            this.tbComplainTicketNo.Text = dt.Rows[0]["TicketNo"];
+                            tbComplainLoggedBy.Text = dt.Rows[0]["LoggedBy"];
+                            ComplainStatusID = dt.Rows[0]["ComplaintStatusID"];
+                            tbComplaintReceivedDT.Text = Convert.ToString(dt.Rows[0]["ComplaintReceivedDate"]);
+                            tbComplainStatus.Text = dt.Rows[0]["ComplainStatus"];
+
+                            cmbAssignedDepartment.Text = dt.Rows[0]["AssignDepartment"];
+                            cmbAssignedDepartment.SelectedValue = Convert.ToString(dt.Rows[0]["AssignedDeptID"]);
+
+                            cmbComplainStatus.Text = dt.Rows[0]["ComplainStatus"];
+                            cmbComplainStatus.SelectedValue = Convert.ToString(dt.Rows[0]["ComplaintStatusID"]);
+
+                            tbLoggedBy0.ReadOnly = true;
+
+                            TicketTypeID = Convert.ToInt32(dt.Rows[0]["TicketTypeID"]);
+                            if (TicketTypeID == 6)
+                            {
+                                cbCheckAll.Enabled = false;
+                            }
+
+                            if (ComplainStatusID.Equals(1) || ComplainStatusID.Equals(5))
+                            {
+                                btnUpdate.Visible = false;
+                            }
+
+                            if (ComplainStatusID.Equals("6"))
+                            {
+                                cmbAssignedDepartment.Enabled = false;
+                            }
+
+                            tbInternalRemarks.Text = dt.Rows[0]["Remarks"];
+                            if (Convert.ToString(dt.Rows[0]["LastUpdatedDate"]) != "")
+                            {
+                                AppDomain.CurrentDomain.SetData("LastUpdatedDate", Convert.ToDateTime(dt.Rows[0]["LastUpdatedDate"]));
+                            }
+                            if (dt.Rows[0]["ComplaintStatusID"] == 4)
+                            {
+
+                                EngineerName = Session["Name"].ToString();
+
+                                tbComplainLoggedBy.Text = dt.Rows[0]["PersonGivenETA"];
+                                RadDateTimePicker3.SelectedDate = dt.Rows[0]["ETA"];
+                                RadDateTimePicker1.SelectedDate = dt.Rows[0]["ETTR"];
+                                tbIPResponses.Text = dt.Rows[0]["QueryResponse"];
+                                if (dt.Rows[0]["RequestTypeAtNE"] == "Support Request")
+                                {
+                                    SupportRequest.Checked = true;
+                                }
+                                else if (dt.Rows[0]["RequestTypeAtNE"] == "Service Request")
+                                {
+                                    ServiceRequest.Checked = true;
+                                }
+
+                            }
+                            loadGridView(click);
                         }
-                        loadGridView(click);
-                    }
-                    else
-                    {
-                        ViewState["Pic1"] = "";
-                        ViewState["Pic2"] = "";
-                    }
+                        else
+                        {
+                            ViewState["Pic1"] = "";
+                            ViewState["Pic2"] = "";
+                        }
 
 
+                    }
                 }
+                else
+                {
+                    Response.Redirect("/Login.aspx", true);
+                }
+            
 
             }
             catch (Exception ex)

@@ -16,6 +16,103 @@ namespace RainMaker.BSS_ServiceLocal {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BSS_ServiceLocal.Service1Soap")]
     public interface Service1Soap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReportData", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetReportData(
+                    string SelectQuery, 
+                    int LOBID, 
+                    int ServiceUniID, 
+                    int InfraID, 
+                    int StatusID, 
+                    int BusinessTypeID, 
+                    int CircuitTypeID, 
+                    int CityID, 
+                    int Pri_NodeID, 
+                    int Pri_OwnerID, 
+                    int Pri_ThirdPartyID, 
+                    int CustomerCode, 
+                    int Sec_NodeID, 
+                    int Sec_OwnerID, 
+                    int Sec_ThirdPartyID, 
+                    int ReportTypeID, 
+                    System.DateTime FromDate, 
+                    System.DateTime ToDate, 
+                    int IsCPMFormate, 
+                    int IsNOCFormate, 
+                    int IsNOC2Formate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReportType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetReportType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetROISummary", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetROISummary(System.DateTime FromDate, System.DateTime ToDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetComplainsLogs", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetComplainsLogs(int LOBID, int ServiceUnitID, int InfraID, int CityID, int CustomerCode, int statusID, int CaseCategoryID, int InitialStatementID, int ComplainTypeID, int AssignedToDepartID, int AssignedByDepartID, System.DateTime ToDate, System.DateTime FromDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAggerationType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetAggerationType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetIPSubnet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetIPSubnet();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPABXModel", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetPABXModel(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNumberClass", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetNumberClass();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNumSeries", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetNumSeries(int CityID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GettProductDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GettProductDetails(int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProductType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetProductType(int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubRegion", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetSubRegion(int RegionID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRoutingProfile", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetRoutingProfile(int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVCVendor", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetVCVendor(int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVAServices", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetVAServices(int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertIPInventory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool InsertIPInventory(int NodeID, int SubnetID, string IpAddress, int TransactionBy, int StartOctate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertVSInventory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool InsertVSInventory(int CityID, int SeriesID, int ClassID, int DiDRangeCount, int StartRange, int IsActive, int TransactionBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertVCInventory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool InsertVCInventory(string DeviceType, int VendorID, string PortsE1, string MACAddress, string SerialNumber, int TransactionBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SearchIPInventory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable SearchIPInventory(int NodeID, int SubnetID, int CityID, int IsFree, int SignupID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SearchVCInventory", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable SearchVCInventory(string VCID, string DeviceType, int VendorID, int IsFree);
@@ -155,21 +252,33 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable GetFLLExtraIP(int SignupID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FreeAllocatedNumber", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool FreeAllocatedNumber(int VSID, int TransactionBy);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Ldap_Authentication", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool Ldap_Authentication(string Username, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SendSMS", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool SendSMS(string Stage, string Number, string Message, int UserID);
+        bool SendSMS(int ComplaintID, string Stage, string Number, string Message, int UserID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEmployeeViaGroup", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEmployeeDetails", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetEmployeeViaGroup(int GroupID, int CityID);
+        System.Data.DataTable GetEmployeeDetails(int GroupID, int CityID, int DepartmentID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGroups", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable GetGroups();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEmployeeDepartment", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetEmployeeDepartment();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEmployeeCities", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetEmployeeCities();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetActivityType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -268,6 +377,60 @@ namespace RainMaker.BSS_ServiceLocal {
                     int IsActive, 
                     int IsBSS);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateComplainFollow", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool UpdateComplainFollow(int ComplaintID, int IsFollow, int TransactionByID, string TransactionByName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssignedComplainsToTeam", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool AssignedComplainsToTeam(int ComplaintID, int TeamID, int Priority, string Remarks, int AssignedByDeptID, string AssignedByPersonName, int TransactionBy);
+        
+        // CODEGEN: Parameter 'picture' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UploadOTS_Attachment", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentResponse UploadOTS_Attachment(RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest request);
+        
+        // CODEGEN: Parameter 'DownloadOTSFileResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DownloadOTSFile", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        RainMaker.BSS_ServiceLocal.DownloadOTSFileResponse DownloadOTSFile(RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateFiberDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool UpdateFiberDetails(int SignupID, string JoinName, string TubeNameFromCustomer, string CoreColorFromCustomer, string TubeNameFromNode, string CoreColorFromNode, string CutDistance, int TransactionBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTeamPrioirty", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetTeamPrioirty();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTeamList", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetTeamList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetFault", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Noctt_GetFault(int FaultID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetImpact", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Noctt_GetImpact(int ImpactID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetIssueOn", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Noctt_GetIssueOn(int IssueOnID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetEscalatedPerson", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Noctt_GetEscalatedPerson(int EscalatedPersonID, int RegionID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetModeofTicket", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Noctt_GetModeofTicket(int ModeofTicketID, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGrouplist", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetGrouplist(int GroupID, int IsActive);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetRFO", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable Noctt_GetRFO(int RFOID, int IsActive);
@@ -334,6 +497,10 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_SearchTickets", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable Noctt_SearchTickets(string TicketNo, int TicketOwnerID, int IssueOnID, int RegionID, int CityID, int NodeAID, int TicketTypeID, int ModeofTicketID, int TicketStatusID, string Connectivity, int ImpactID, int FaultID, int RFOID, System.DateTime ToDate, System.DateTime FromDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_SendSMS", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Noctt_SendSMS(int TickID, string GroupListID, string TicketNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCircuitforICS", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -671,112 +838,145 @@ namespace RainMaker.BSS_ServiceLocal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertCustomerTermination", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int InsertCustomerTermination(int TerminationID, int SignupID, System.DateTime CaseReportedAt, string OverallCustomerRevenue, System.DateTime TerminationDate, string NoOfCircuitTerminated, int RequestStatusID, int NoticedPeriodID, int TerminationReasonID, int SubReasonID, string Remarks, string Conclusion, int TransactionBy);
+        int InsertCustomerTermination(
+                    int TerminationID, 
+                    int SignupID, 
+                    System.DateTime CaseReportedAt, 
+                    string OverallCustomerRevenue, 
+                    System.DateTime TerminationDate, 
+                    int RequestStatusID, 
+                    int NoticedPeriodID, 
+                    int TerminationReasonID, 
+                    int SubReasonID, 
+                    int RetainedBandwidthID, 
+                    int RetainedMRC, 
+                    System.DateTime EffectiveDateTime, 
+                    int EquipmentCollection, 
+                    System.DateTime ScheduleDateTime, 
+                    string Remarks, 
+                    string Conclusion, 
+                    int TransactionBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCustomerTermination", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool UpdateCustomerTermination(int TerminationID, int SignupID, System.DateTime CaseReportedAt, string OverallCustomerRevenue, System.DateTime TerminationDate, string NoOfCircuitTerminated, int RequestStatusID, int NoticedPeriodID, int TerminationReasonID, int SubReasonID, string Remarks, string Conclusion, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSignupDetailsByCTC", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSignupDetailsByCRU", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateSignupDetailsByCTC(int SignupID, System.DateTime MRC_Charges, string RequestStatusID, int TransactionBy);
+        bool UpdateSignupDetailsByCRU(int SignupID, string RequestStatusID, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReportData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertScheduleHistory", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetReportData(
-                    string SelectQuery, 
-                    int LOBID, 
-                    int ServiceUniID, 
-                    int InfraID, 
-                    int StatusID, 
-                    int BusinessTypeID, 
-                    int CircuitTypeID, 
-                    int CityID, 
-                    int Pri_NodeID, 
-                    int Pri_OwnerID, 
-                    int Pri_ThirdPartyID, 
-                    int CustomerCode, 
-                    int Sec_NodeID, 
-                    int Sec_OwnerID, 
-                    int Sec_ThirdPartyID, 
-                    int ReportTypeID, 
-                    System.DateTime FromDate, 
-                    System.DateTime ToDate, 
-                    int IsCPMFormate, 
-                    int IsNOCFormate, 
-                    int IsNOC2Formate);
+        bool InsertScheduleHistory(int TerminationID, System.DateTime ScheduleDateTime, string Remarks, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReportType", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCircuitCaseDetails", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetReportType();
+        System.Data.DataTable GetCircuitCaseDetails(int TerminationID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetROISummary", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EmailOnCRUAction", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetROISummary(System.DateTime FromDate, System.DateTime ToDate);
+        bool EmailOnCRUAction(int TerminationID, string EmailStage, string LastActionRemarks, string TransactionByName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetComplainsLogs", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TxnInternalEmail", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetComplainsLogs(int LOBID, int ServiceUnitID, int InfraID, int CityID, int CustomerCode, int statusID, int CaseCategoryID, int InitialStatementID, int ComplainTypeID, int AssignedToDepartID, int AssignedByDepartID, System.DateTime ToDate, System.DateTime FromDate);
+        bool TxnInternalEmail(int SignupID, string Status, string Remarks, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAggerationType", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TXNStatusActionEmail", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetAggerationType();
+        bool TXNStatusActionEmail(int IpProvsionID, int LobID, int ServiceUnitID, int InfraID, int SignupID, string StatusFlag, string EmailStage);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetIPSubnet", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRAM", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetIPSubnet();
+        System.Data.DataTable GetRAM(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPABXModel", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCloudType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetPABXModel(int ID);
+        System.Data.DataTable GetCloudType(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNumberClass", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOS", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetNumberClass();
+        System.Data.DataTable GetOS(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNumSeries", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProcessorSpeed", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetNumSeries(int CityID, int IsActive);
+        System.Data.DataTable GetProcessorSpeed(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GettProductDetails", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GettProductDetails(int IsActive);
+        System.Data.DataTable GetPackageType(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProductType", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSoftware", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetProductType(int IsActive);
+        System.Data.DataTable GetSoftware(string SWType, int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubRegion", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStorageType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetSubRegion(int RegionID, int IsActive);
+        System.Data.DataTable GetStorageType(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRoutingProfile", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVMHost", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetRoutingProfile(int IsActive);
+        System.Data.DataTable GetVMHost(int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVCVendor", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertRAM", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetVCVendor(int IsActive);
+        bool InsertRAM(string RAM, int IsActive, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVAServices", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateRAM", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetVAServices(int IsActive);
+        bool UpdateRAM(string RAM, int IsActive, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertIPInventory", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertCloudDepolyment", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool InsertIPInventory(int NodeID, int SubnetID, string IpAddress, int TransactionBy, int StartOctate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertVSInventory", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool InsertVSInventory(int CityID, int SeriesID, int ClassID, int DiDRangeCount, int StartRange, int IsActive, int TransactionBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertVCInventory", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool InsertVCInventory(string DeviceType, int VendorID, string PortsE1, string MACAddress, string SerialNumber, int TransactionBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SearchIPInventory", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable SearchIPInventory(int NodeID, int SubnetID, int CityID, int IsFree, int SignupID);
+        int InsertCloudDepolyment(
+                    int DeploymentID, 
+                    int SignupID, 
+                    int CloudTypeID, 
+                    int NoofVM, 
+                    int PackageTypeID, 
+                    int HighAvalibility, 
+                    int ProcessorSpeedID, 
+                    int NoofCores, 
+                    int RAMID, 
+                    int StorageTypeID, 
+                    string StorageCapacity, 
+                    int NoofNIC, 
+                    int NoofPublicIPs, 
+                    string PriIPAddress, 
+                    string PriVLAN, 
+                    string SecIPAddress, 
+                    string SecVLAN, 
+                    string PriServerLoc, 
+                    string PriServerPool, 
+                    int PriVMHostID, 
+                    string SecServerLoc, 
+                    string SecServerPool, 
+                    int SecVMHostID, 
+                    string OSName, 
+                    int ExchangeRequired, 
+                    string ExchangeName, 
+                    int NoofExchangeCALs, 
+                    int DtabaseRequired, 
+                    string DatabaseName, 
+                    int RemoteAccessRequired, 
+                    int NoofRemoteCALs, 
+                    int VPNRequired, 
+                    int NoofVPNUsers, 
+                    string VPNUserID, 
+                    string VPNPassword, 
+                    int PortalAccessRequired, 
+                    string PortalUserID, 
+                    string PortalPassword, 
+                    int VMSnapshotRequired, 
+                    string VMSnapshotFrequency, 
+                    string VMSnapshotPath, 
+                    string Remarks, 
+                    int Internet_SignupID, 
+                    int MPLSLayer3_SignupID, 
+                    int MPLSLayer2_SignupID, 
+                    int FLL_SignupID, 
+                    int Transit_SignupID, 
+                    int layer2VPN_SignupID, 
+                    int TransactionBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCloudDelpoyment", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -1242,59 +1442,57 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable checkComplainBySignupID(int SignupID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateComplainFollow", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertSwitch", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateComplainFollow(int ComplaintID, int IsFollow, int TransactionByID, string TransactionByName);
+        int InsertSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssignedComplainsToTeam", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSwitch", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool AssignedComplainsToTeam(int ComplaintID, int TeamID, int Priority, string Remarks, int AssignedByDeptID, string AssignedByPersonName, int TransactionBy);
+        bool UpdateSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy);
         
-        // CODEGEN: Parameter 'picture' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UploadOTS_Attachment", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSwitchPortStatus", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentResponse UploadOTS_Attachment(RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest request);
+        bool UpdateSwitchPortStatus(int SwitchPortID, int StatusID);
         
-        // CODEGEN: Parameter 'DownloadOTSFileResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DownloadOTSFile", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCPEWaveLength", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        RainMaker.BSS_ServiceLocal.DownloadOTSFileResponse DownloadOTSFile(RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest request);
+        System.Data.DataTable GetCPEWaveLength();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateFiberDetails", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCPEType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateFiberDetails(int SignupID, string JoinName, string TubeNameFromCustomer, string CoreColorFromCustomer, string TubeNameFromNode, string CoreColorFromNode, string CutDistance, int TransactionBy);
+        System.Data.DataTable GetCPEType();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTeamPrioirty", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCircuitMode", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetTeamPrioirty();
+        System.Data.DataTable GetCircuitMode();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTeamList", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFeedType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetTeamList();
+        System.Data.DataTable GetFeedType();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetFault", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRouterType", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable Noctt_GetFault(int FaultID, int IsActive);
+        System.Data.DataTable GetRouterType();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetImpact", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetExtraIp", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable Noctt_GetImpact(int ImpactID, int IsActive);
+        System.Data.DataTable GetExtraIp(int SignupID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetIssueOn", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRouter", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable Noctt_GetIssueOn(int IssueOnID, int IsActive);
+        System.Data.DataTable GetRouter(int RouterID, int RouterTypeID, int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetEscalatedPerson", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetModel", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable Noctt_GetEscalatedPerson(int EscalatedPersonID, int RegionID, int IsActive);
+        System.Data.DataTable GetModel(int ModelID, string ModelType, int IsActive, string Flag);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Noctt_GetModeofTicket", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVRF", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable Noctt_GetModeofTicket(int ModeofTicketID, int IsActive);
+        System.Data.DataTable GetVRF(int VRFID, int ServiceUnitID, int IsActive);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGrouplist", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOperation", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetGrouplist(int GroupID, int IsActive);
+        System.Data.DataTable GetOperation(int OperationID, int IsActive);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNMSStatus", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2021,106 +2219,13 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable GetInternalStatusHist(int SignupID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TxnInternalEmail", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CustomerMailofTDM", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool TxnInternalEmail(int SignupID, string Status, string Remarks, int TransactionBy);
+        bool CustomerMailofTDM(string OrderNo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TXNStatusActionEmail", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertArea", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool TXNStatusActionEmail(int IpProvsionID, int LobID, int ServiceUnitID, int InfraID, int SignupID, string StatusFlag, string EmailStage);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRAM", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetRAM(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCloudType", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetCloudType(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOS", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetOS(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProcessorSpeed", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetProcessorSpeed(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageType", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetPackageType(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSoftware", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetSoftware(string SWType, int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStorageType", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetStorageType(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVMHost", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetVMHost(int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertRAM", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool InsertRAM(string RAM, int IsActive, int TransactionBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateRAM", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateRAM(string RAM, int IsActive, int TransactionBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertCloudDepolyment", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int InsertCloudDepolyment(
-                    int DeploymentID, 
-                    int SignupID, 
-                    int CloudTypeID, 
-                    int NoofVM, 
-                    int PackageTypeID, 
-                    int HighAvalibility, 
-                    int ProcessorSpeedID, 
-                    int NoofCores, 
-                    int RAMID, 
-                    int StorageTypeID, 
-                    string StorageCapacity, 
-                    int NoofNIC, 
-                    int NoofPublicIPs, 
-                    string PriIPAddress, 
-                    string PriVLAN, 
-                    string SecIPAddress, 
-                    string SecVLAN, 
-                    string PriServerLoc, 
-                    string PriServerPool, 
-                    int PriVMHostID, 
-                    string SecServerLoc, 
-                    string SecServerPool, 
-                    int SecVMHostID, 
-                    string OSName, 
-                    int ExchangeRequired, 
-                    string ExchangeName, 
-                    int NoofExchangeCALs, 
-                    int DtabaseRequired, 
-                    string DatabaseName, 
-                    int RemoteAccessRequired, 
-                    int NoofRemoteCALs, 
-                    int VPNRequired, 
-                    int NoofVPNUsers, 
-                    string VPNUserID, 
-                    string VPNPassword, 
-                    int PortalAccessRequired, 
-                    string PortalUserID, 
-                    string PortalPassword, 
-                    int VMSnapshotRequired, 
-                    string VMSnapshotFrequency, 
-                    string VMSnapshotPath, 
-                    string Remarks, 
-                    int Internet_SignupID, 
-                    int MPLSLayer3_SignupID, 
-                    int MPLSLayer2_SignupID, 
-                    int FLL_SignupID, 
-                    int Transit_SignupID, 
-                    int layer2VPN_SignupID, 
-                    int TransactionBy);
+        bool InsertArea(string area, int CityID, int IsActive, string TransBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertSalesperson", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2140,19 +2245,113 @@ namespace RainMaker.BSS_ServiceLocal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertMasterCustomer", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int InsertMasterCustomer(int CustomerCode, string Customer, string Logo, string Country, string State, string City, string EmailAddress, string Phone, string Remarks, int IsActive, int TransactionBy);
+        int InsertMasterCustomer(
+                    int CustomerCode, 
+                    string Customer, 
+                    string Logo, 
+                    string Country, 
+                    string State, 
+                    string City, 
+                    string EmailAddress, 
+                    string Phone, 
+                    string NTN, 
+                    string CNIC, 
+                    string CustomerType, 
+                    string WebsiteURL, 
+                    string Address, 
+                    string Remarks, 
+                    int IsActive, 
+                    int ISAPP_Customer, 
+                    int TransactionBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateMasterCustomer", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateMasterCustomer(int CustomerCode, string Customer, string Logo, string Country, string State, string City, string EmailAddress, string Phone, string Remarks, int IsActive, int TransactionBy);
+        bool UpdateMasterCustomer(
+                    int CustomerCode, 
+                    string Customer, 
+                    string Logo, 
+                    string Country, 
+                    string State, 
+                    string City, 
+                    string EmailAddress, 
+                    string Phone, 
+                    string NTN, 
+                    string CNIC, 
+                    string CustomerType, 
+                    string WebsiteURL, 
+                    string Address, 
+                    string Remarks, 
+                    int IsActive, 
+                    int ISAPP_Customer, 
+                    int TransactionBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SearchMasterCustomer", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable SearchMasterCustomer(int CustomerCode, string CustomerName, int IsActive);
+        System.Data.DataTable SearchMasterCustomer(int CustomerCode, string CustomerName, string NTN, string CNIC, int IsActive);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCustomerType", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetCustomerType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGPMasterCode", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetGPMasterCode(int CustomerCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertGPMAster", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool InsertGPMAster(int CustomerCode, string GPMasterCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetConclusionofCircuits", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetConclusionofCircuits(int CustomerCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAppUserRoles", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetAppUserRoles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertAPPUserLogin", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool InsertAPPUserLogin(string UserName, string UserLogin, string Password, int RoleID, int BSSMasterCode, int IsActive, int TransactionBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateAPPUserLogin", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool UpdateAPPUserLogin(int UserID, string UserName, string UserLogin, string Password, int RoleID, int IsActive, int TransactionBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SearchAppUserLogin", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable SearchAppUserLogin(int CustomerCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteAppUserLogin", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool DeleteAppUserLogin(int UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetMasterCustomer", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable GetMasterCustomer();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SelectContactDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable SelectContactDetails(int SignupID, int CustomerCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContactDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool UpdateContactDetails(
+                    int SignupID, 
+                    int CustomerCode, 
+                    string UpdateFlag, 
+                    string Contact_Name, 
+                    string Contact_Office, 
+                    string Contact_Phone, 
+                    string Contact_Cell, 
+                    string Contact_Fax, 
+                    string Contact_Email, 
+                    string Contact_SMS, 
+                    string Bil_Name, 
+                    string Bil_Phone, 
+                    string Bil_Email, 
+                    string Bil_Cell, 
+                    string Bil_Fax, 
+                    int TransactionBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertProjects", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2555,58 +2754,6 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable SearchSwitches(int CityID, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertSwitch", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int InsertSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSwitch", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSwitchPortStatus", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool UpdateSwitchPortStatus(int SwitchPortID, int StatusID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCPEWaveLength", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetCPEWaveLength();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCPEType", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetCPEType();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCircuitMode", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetCircuitMode();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFeedType", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetFeedType();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRouterType", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetRouterType();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetExtraIp", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetExtraIp(int SignupID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRouter", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetRouter(int RouterID, int RouterTypeID, int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetModel", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetModel(int ModelID, string ModelType, int IsActive, string Flag);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVRF", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetVRF(int VRFID, int ServiceUnitID, int IsActive);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetOperation", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetOperation(int OperationID, int IsActive);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AuthenticateUser", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AuthenticateUser(string username, string pass);
@@ -2803,6 +2950,14 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable GetCountries();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCountries_New", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetCountries_New();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCitiesByCountry", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetCitiesByCountry(int CountryID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSiteB_ID", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable GetSiteB_ID(string B_Company);
@@ -2921,8 +3076,8 @@ namespace RainMaker.BSS_ServiceLocal {
                     string ThirdPartyAccountID, 
                     double OTC_Party, 
                     double MRC_Party, 
-                    double InfraCost, 
                     double ProposedCost, 
+                    double InfraCost, 
                     int EquipmentPropertyID, 
                     double EquipmentCost, 
                     double ROI_Month, 
@@ -3124,7 +3279,28 @@ namespace RainMaker.BSS_ServiceLocal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCustomerSignupsView", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable GetCustomerSignupsView(string BSSCode, string Company, int OrderId, string Infra, string Status, string CMSID, string GPID, int CityID, int OwnerID, int CircuitOwnerID, int CustomerCode, int ProjectCode);
+        System.Data.DataTable GetCustomerSignupsView(
+                    int SignupID, 
+                    string BSSCODE, 
+                    string CMSID, 
+                    string GPID, 
+                    int CircuitStatusID, 
+                    int InfraID, 
+                    int CityID, 
+                    int OwnerID, 
+                    string CircuitName, 
+                    int CircuitOwnerID, 
+                    int IsCOARecived, 
+                    int CustomerCode, 
+                    int ProjectCode, 
+                    int Primary_RingID, 
+                    string Primary_IpAddres, 
+                    string Primary_CPE_IpAddress, 
+                    int NodeID, 
+                    string ExtraIP, 
+                    int Primary_SwitchID, 
+                    System.DateTime FromDate, 
+                    System.DateTime ToDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSearchOrdersByCompanyAndOrderNo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -3165,14 +3341,80 @@ namespace RainMaker.BSS_ServiceLocal {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Customer_Email", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool Customer_Email(string OrderNo);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadOTS_Attachment", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UploadOTS_AttachmentRequest {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CustomerMailofTDM", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool CustomerMailofTDM(string OrderNo);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] picture;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertArea", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool InsertArea(string area, int CityID, int IsActive, string TransBy);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string filename;
+        
+        public UploadOTS_AttachmentRequest() {
+        }
+        
+        public UploadOTS_AttachmentRequest(byte[] picture, string filename) {
+            this.picture = picture;
+            this.filename = filename;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadOTS_AttachmentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UploadOTS_AttachmentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string UploadOTS_AttachmentResult;
+        
+        public UploadOTS_AttachmentResponse() {
+        }
+        
+        public UploadOTS_AttachmentResponse(string UploadOTS_AttachmentResult) {
+            this.UploadOTS_AttachmentResult = UploadOTS_AttachmentResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DownloadOTSFile", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DownloadOTSFileRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string filename;
+        
+        public DownloadOTSFileRequest() {
+        }
+        
+        public DownloadOTSFileRequest(string filename) {
+            this.filename = filename;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DownloadOTSFileResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DownloadOTSFileResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] DownloadOTSFileResult;
+        
+        public DownloadOTSFileResponse() {
+        }
+        
+        public DownloadOTSFileResponse(byte[] DownloadOTSFileResult) {
+            this.DownloadOTSFileResult = DownloadOTSFileResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3359,80 +3601,6 @@ namespace RainMaker.BSS_ServiceLocal {
         
         public DownloadCOAFileResponse(byte[] DownloadCOAFileResult) {
             this.DownloadCOAFileResult = DownloadCOAFileResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadOTS_Attachment", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UploadOTS_AttachmentRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] picture;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string filename;
-        
-        public UploadOTS_AttachmentRequest() {
-        }
-        
-        public UploadOTS_AttachmentRequest(byte[] picture, string filename) {
-            this.picture = picture;
-            this.filename = filename;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadOTS_AttachmentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UploadOTS_AttachmentResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string UploadOTS_AttachmentResult;
-        
-        public UploadOTS_AttachmentResponse() {
-        }
-        
-        public UploadOTS_AttachmentResponse(string UploadOTS_AttachmentResult) {
-            this.UploadOTS_AttachmentResult = UploadOTS_AttachmentResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DownloadOTSFile", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class DownloadOTSFileRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string filename;
-        
-        public DownloadOTSFileRequest() {
-        }
-        
-        public DownloadOTSFileRequest(string filename) {
-            this.filename = filename;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DownloadOTSFileResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class DownloadOTSFileResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DownloadOTSFileResult;
-        
-        public DownloadOTSFileResponse() {
-        }
-        
-        public DownloadOTSFileResponse(byte[] DownloadOTSFileResult) {
-            this.DownloadOTSFileResult = DownloadOTSFileResult;
         }
     }
     
@@ -4122,6 +4290,103 @@ namespace RainMaker.BSS_ServiceLocal {
                 base(binding, remoteAddress) {
         }
         
+        public System.Data.DataTable GetReportData(
+                    string SelectQuery, 
+                    int LOBID, 
+                    int ServiceUniID, 
+                    int InfraID, 
+                    int StatusID, 
+                    int BusinessTypeID, 
+                    int CircuitTypeID, 
+                    int CityID, 
+                    int Pri_NodeID, 
+                    int Pri_OwnerID, 
+                    int Pri_ThirdPartyID, 
+                    int CustomerCode, 
+                    int Sec_NodeID, 
+                    int Sec_OwnerID, 
+                    int Sec_ThirdPartyID, 
+                    int ReportTypeID, 
+                    System.DateTime FromDate, 
+                    System.DateTime ToDate, 
+                    int IsCPMFormate, 
+                    int IsNOCFormate, 
+                    int IsNOC2Formate) {
+            return base.Channel.GetReportData(SelectQuery, LOBID, ServiceUniID, InfraID, StatusID, BusinessTypeID, CircuitTypeID, CityID, Pri_NodeID, Pri_OwnerID, Pri_ThirdPartyID, CustomerCode, Sec_NodeID, Sec_OwnerID, Sec_ThirdPartyID, ReportTypeID, FromDate, ToDate, IsCPMFormate, IsNOCFormate, IsNOC2Formate);
+        }
+        
+        public System.Data.DataTable GetReportType() {
+            return base.Channel.GetReportType();
+        }
+        
+        public System.Data.DataTable GetROISummary(System.DateTime FromDate, System.DateTime ToDate) {
+            return base.Channel.GetROISummary(FromDate, ToDate);
+        }
+        
+        public System.Data.DataTable GetComplainsLogs(int LOBID, int ServiceUnitID, int InfraID, int CityID, int CustomerCode, int statusID, int CaseCategoryID, int InitialStatementID, int ComplainTypeID, int AssignedToDepartID, int AssignedByDepartID, System.DateTime ToDate, System.DateTime FromDate) {
+            return base.Channel.GetComplainsLogs(LOBID, ServiceUnitID, InfraID, CityID, CustomerCode, statusID, CaseCategoryID, InitialStatementID, ComplainTypeID, AssignedToDepartID, AssignedByDepartID, ToDate, FromDate);
+        }
+        
+        public System.Data.DataTable GetAggerationType() {
+            return base.Channel.GetAggerationType();
+        }
+        
+        public System.Data.DataTable GetIPSubnet() {
+            return base.Channel.GetIPSubnet();
+        }
+        
+        public System.Data.DataTable GetPABXModel(int ID) {
+            return base.Channel.GetPABXModel(ID);
+        }
+        
+        public System.Data.DataTable GetNumberClass() {
+            return base.Channel.GetNumberClass();
+        }
+        
+        public System.Data.DataTable GetNumSeries(int CityID, int IsActive) {
+            return base.Channel.GetNumSeries(CityID, IsActive);
+        }
+        
+        public System.Data.DataTable GettProductDetails(int IsActive) {
+            return base.Channel.GettProductDetails(IsActive);
+        }
+        
+        public System.Data.DataTable GetProductType(int IsActive) {
+            return base.Channel.GetProductType(IsActive);
+        }
+        
+        public System.Data.DataTable GetSubRegion(int RegionID, int IsActive) {
+            return base.Channel.GetSubRegion(RegionID, IsActive);
+        }
+        
+        public System.Data.DataTable GetRoutingProfile(int IsActive) {
+            return base.Channel.GetRoutingProfile(IsActive);
+        }
+        
+        public System.Data.DataTable GetVCVendor(int IsActive) {
+            return base.Channel.GetVCVendor(IsActive);
+        }
+        
+        public System.Data.DataTable GetVAServices(int IsActive) {
+            return base.Channel.GetVAServices(IsActive);
+        }
+        
+        public bool InsertIPInventory(int NodeID, int SubnetID, string IpAddress, int TransactionBy, int StartOctate) {
+            return base.Channel.InsertIPInventory(NodeID, SubnetID, IpAddress, TransactionBy, StartOctate);
+        }
+        
+        public bool InsertVSInventory(int CityID, int SeriesID, int ClassID, int DiDRangeCount, int StartRange, int IsActive, int TransactionBy) {
+            return base.Channel.InsertVSInventory(CityID, SeriesID, ClassID, DiDRangeCount, StartRange, IsActive, TransactionBy);
+        }
+        
+        public bool InsertVCInventory(string DeviceType, int VendorID, string PortsE1, string MACAddress, string SerialNumber, int TransactionBy) {
+            return base.Channel.InsertVCInventory(DeviceType, VendorID, PortsE1, MACAddress, SerialNumber, TransactionBy);
+        }
+        
+        public System.Data.DataTable SearchIPInventory(int NodeID, int SubnetID, int CityID, int IsFree, int SignupID) {
+            return base.Channel.SearchIPInventory(NodeID, SubnetID, CityID, IsFree, SignupID);
+        }
+        
         public System.Data.DataTable SearchVCInventory(string VCID, string DeviceType, int VendorID, int IsFree) {
             return base.Channel.SearchVCInventory(VCID, DeviceType, VendorID, IsFree);
         }
@@ -4261,20 +4526,32 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.GetFLLExtraIP(SignupID);
         }
         
+        public bool FreeAllocatedNumber(int VSID, int TransactionBy) {
+            return base.Channel.FreeAllocatedNumber(VSID, TransactionBy);
+        }
+        
         public bool Ldap_Authentication(string Username, string Password) {
             return base.Channel.Ldap_Authentication(Username, Password);
         }
         
-        public bool SendSMS(string Stage, string Number, string Message, int UserID) {
-            return base.Channel.SendSMS(Stage, Number, Message, UserID);
+        public bool SendSMS(int ComplaintID, string Stage, string Number, string Message, int UserID) {
+            return base.Channel.SendSMS(ComplaintID, Stage, Number, Message, UserID);
         }
         
-        public System.Data.DataTable GetEmployeeViaGroup(int GroupID, int CityID) {
-            return base.Channel.GetEmployeeViaGroup(GroupID, CityID);
+        public System.Data.DataTable GetEmployeeDetails(int GroupID, int CityID, int DepartmentID) {
+            return base.Channel.GetEmployeeDetails(GroupID, CityID, DepartmentID);
         }
         
         public System.Data.DataTable GetGroups() {
             return base.Channel.GetGroups();
+        }
+        
+        public System.Data.DataTable GetEmployeeDepartment() {
+            return base.Channel.GetEmployeeDepartment();
+        }
+        
+        public System.Data.DataTable GetEmployeeCities() {
+            return base.Channel.GetEmployeeCities();
         }
         
         public System.Data.DataTable GetActivityType() {
@@ -4374,6 +4651,75 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.InsertEmployee(Name, Username, EmployeeCode, EmployeeGrade, EmployeeType, Contact_Number, Contact_Email, UserLevelID, ManagerID, Designation, DepartmentID, LOBID, CityID, DomainID, RoleID, TransactionBy, IsAdAuthenticate, IsActive, IsBSS);
         }
         
+        public bool UpdateComplainFollow(int ComplaintID, int IsFollow, int TransactionByID, string TransactionByName) {
+            return base.Channel.UpdateComplainFollow(ComplaintID, IsFollow, TransactionByID, TransactionByName);
+        }
+        
+        public bool AssignedComplainsToTeam(int ComplaintID, int TeamID, int Priority, string Remarks, int AssignedByDeptID, string AssignedByPersonName, int TransactionBy) {
+            return base.Channel.AssignedComplainsToTeam(ComplaintID, TeamID, Priority, Remarks, AssignedByDeptID, AssignedByPersonName, TransactionBy);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentResponse RainMaker.BSS_ServiceLocal.Service1Soap.UploadOTS_Attachment(RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest request) {
+            return base.Channel.UploadOTS_Attachment(request);
+        }
+        
+        public string UploadOTS_Attachment(byte[] picture, string filename) {
+            RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest inValue = new RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest();
+            inValue.picture = picture;
+            inValue.filename = filename;
+            RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentResponse retVal = ((RainMaker.BSS_ServiceLocal.Service1Soap)(this)).UploadOTS_Attachment(inValue);
+            return retVal.UploadOTS_AttachmentResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RainMaker.BSS_ServiceLocal.DownloadOTSFileResponse RainMaker.BSS_ServiceLocal.Service1Soap.DownloadOTSFile(RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest request) {
+            return base.Channel.DownloadOTSFile(request);
+        }
+        
+        public byte[] DownloadOTSFile(string filename) {
+            RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest inValue = new RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest();
+            inValue.filename = filename;
+            RainMaker.BSS_ServiceLocal.DownloadOTSFileResponse retVal = ((RainMaker.BSS_ServiceLocal.Service1Soap)(this)).DownloadOTSFile(inValue);
+            return retVal.DownloadOTSFileResult;
+        }
+        
+        public bool UpdateFiberDetails(int SignupID, string JoinName, string TubeNameFromCustomer, string CoreColorFromCustomer, string TubeNameFromNode, string CoreColorFromNode, string CutDistance, int TransactionBy) {
+            return base.Channel.UpdateFiberDetails(SignupID, JoinName, TubeNameFromCustomer, CoreColorFromCustomer, TubeNameFromNode, CoreColorFromNode, CutDistance, TransactionBy);
+        }
+        
+        public System.Data.DataTable GetTeamPrioirty() {
+            return base.Channel.GetTeamPrioirty();
+        }
+        
+        public System.Data.DataTable GetTeamList() {
+            return base.Channel.GetTeamList();
+        }
+        
+        public System.Data.DataTable Noctt_GetFault(int FaultID, int IsActive) {
+            return base.Channel.Noctt_GetFault(FaultID, IsActive);
+        }
+        
+        public System.Data.DataTable Noctt_GetImpact(int ImpactID, int IsActive) {
+            return base.Channel.Noctt_GetImpact(ImpactID, IsActive);
+        }
+        
+        public System.Data.DataTable Noctt_GetIssueOn(int IssueOnID, int IsActive) {
+            return base.Channel.Noctt_GetIssueOn(IssueOnID, IsActive);
+        }
+        
+        public System.Data.DataTable Noctt_GetEscalatedPerson(int EscalatedPersonID, int RegionID, int IsActive) {
+            return base.Channel.Noctt_GetEscalatedPerson(EscalatedPersonID, RegionID, IsActive);
+        }
+        
+        public System.Data.DataTable Noctt_GetModeofTicket(int ModeofTicketID, int IsActive) {
+            return base.Channel.Noctt_GetModeofTicket(ModeofTicketID, IsActive);
+        }
+        
+        public System.Data.DataTable GetGrouplist(int GroupID, int IsActive) {
+            return base.Channel.GetGrouplist(GroupID, IsActive);
+        }
+        
         public System.Data.DataTable Noctt_GetRFO(int RFOID, int IsActive) {
             return base.Channel.Noctt_GetRFO(RFOID, IsActive);
         }
@@ -4439,6 +4785,10 @@ namespace RainMaker.BSS_ServiceLocal {
         
         public System.Data.DataTable Noctt_SearchTickets(string TicketNo, int TicketOwnerID, int IssueOnID, int RegionID, int CityID, int NodeAID, int TicketTypeID, int ModeofTicketID, int TicketStatusID, string Connectivity, int ImpactID, int FaultID, int RFOID, System.DateTime ToDate, System.DateTime FromDate) {
             return base.Channel.Noctt_SearchTickets(TicketNo, TicketOwnerID, IssueOnID, RegionID, CityID, NodeAID, TicketTypeID, ModeofTicketID, TicketStatusID, Connectivity, ImpactID, FaultID, RFOID, ToDate, FromDate);
+        }
+        
+        public string Noctt_SendSMS(int TickID, string GroupListID, string TicketNo) {
+            return base.Channel.Noctt_SendSMS(TickID, GroupListID, TicketNo);
         }
         
         public System.Data.DataTable GetCircuitforICS(int SignupID, string CMSID, string CircuitName, string GPID, int RegionID, int CityID, int RingID, int NodeID, int CustomerCode, string IPAddress, int StatusID, int InfraID, int ServiceUnitID, int IsGSAC) {
@@ -4798,113 +5148,146 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.GetTerminationSubReason(TerminationReasonID);
         }
         
-        public int InsertCustomerTermination(int TerminationID, int SignupID, System.DateTime CaseReportedAt, string OverallCustomerRevenue, System.DateTime TerminationDate, string NoOfCircuitTerminated, int RequestStatusID, int NoticedPeriodID, int TerminationReasonID, int SubReasonID, string Remarks, string Conclusion, int TransactionBy) {
-            return base.Channel.InsertCustomerTermination(TerminationID, SignupID, CaseReportedAt, OverallCustomerRevenue, TerminationDate, NoOfCircuitTerminated, RequestStatusID, NoticedPeriodID, TerminationReasonID, SubReasonID, Remarks, Conclusion, TransactionBy);
+        public int InsertCustomerTermination(
+                    int TerminationID, 
+                    int SignupID, 
+                    System.DateTime CaseReportedAt, 
+                    string OverallCustomerRevenue, 
+                    System.DateTime TerminationDate, 
+                    int RequestStatusID, 
+                    int NoticedPeriodID, 
+                    int TerminationReasonID, 
+                    int SubReasonID, 
+                    int RetainedBandwidthID, 
+                    int RetainedMRC, 
+                    System.DateTime EffectiveDateTime, 
+                    int EquipmentCollection, 
+                    System.DateTime ScheduleDateTime, 
+                    string Remarks, 
+                    string Conclusion, 
+                    int TransactionBy) {
+            return base.Channel.InsertCustomerTermination(TerminationID, SignupID, CaseReportedAt, OverallCustomerRevenue, TerminationDate, RequestStatusID, NoticedPeriodID, TerminationReasonID, SubReasonID, RetainedBandwidthID, RetainedMRC, EffectiveDateTime, EquipmentCollection, ScheduleDateTime, Remarks, Conclusion, TransactionBy);
         }
         
         public bool UpdateCustomerTermination(int TerminationID, int SignupID, System.DateTime CaseReportedAt, string OverallCustomerRevenue, System.DateTime TerminationDate, string NoOfCircuitTerminated, int RequestStatusID, int NoticedPeriodID, int TerminationReasonID, int SubReasonID, string Remarks, string Conclusion, int TransactionBy) {
             return base.Channel.UpdateCustomerTermination(TerminationID, SignupID, CaseReportedAt, OverallCustomerRevenue, TerminationDate, NoOfCircuitTerminated, RequestStatusID, NoticedPeriodID, TerminationReasonID, SubReasonID, Remarks, Conclusion, TransactionBy);
         }
         
-        public bool UpdateSignupDetailsByCTC(int SignupID, System.DateTime MRC_Charges, string RequestStatusID, int TransactionBy) {
-            return base.Channel.UpdateSignupDetailsByCTC(SignupID, MRC_Charges, RequestStatusID, TransactionBy);
+        public bool UpdateSignupDetailsByCRU(int SignupID, string RequestStatusID, int TransactionBy) {
+            return base.Channel.UpdateSignupDetailsByCRU(SignupID, RequestStatusID, TransactionBy);
         }
         
-        public System.Data.DataTable GetReportData(
-                    string SelectQuery, 
-                    int LOBID, 
-                    int ServiceUniID, 
-                    int InfraID, 
-                    int StatusID, 
-                    int BusinessTypeID, 
-                    int CircuitTypeID, 
-                    int CityID, 
-                    int Pri_NodeID, 
-                    int Pri_OwnerID, 
-                    int Pri_ThirdPartyID, 
-                    int CustomerCode, 
-                    int Sec_NodeID, 
-                    int Sec_OwnerID, 
-                    int Sec_ThirdPartyID, 
-                    int ReportTypeID, 
-                    System.DateTime FromDate, 
-                    System.DateTime ToDate, 
-                    int IsCPMFormate, 
-                    int IsNOCFormate, 
-                    int IsNOC2Formate) {
-            return base.Channel.GetReportData(SelectQuery, LOBID, ServiceUniID, InfraID, StatusID, BusinessTypeID, CircuitTypeID, CityID, Pri_NodeID, Pri_OwnerID, Pri_ThirdPartyID, CustomerCode, Sec_NodeID, Sec_OwnerID, Sec_ThirdPartyID, ReportTypeID, FromDate, ToDate, IsCPMFormate, IsNOCFormate, IsNOC2Formate);
+        public bool InsertScheduleHistory(int TerminationID, System.DateTime ScheduleDateTime, string Remarks, int TransactionBy) {
+            return base.Channel.InsertScheduleHistory(TerminationID, ScheduleDateTime, Remarks, TransactionBy);
         }
         
-        public System.Data.DataTable GetReportType() {
-            return base.Channel.GetReportType();
+        public System.Data.DataTable GetCircuitCaseDetails(int TerminationID) {
+            return base.Channel.GetCircuitCaseDetails(TerminationID);
         }
         
-        public System.Data.DataTable GetROISummary(System.DateTime FromDate, System.DateTime ToDate) {
-            return base.Channel.GetROISummary(FromDate, ToDate);
+        public bool EmailOnCRUAction(int TerminationID, string EmailStage, string LastActionRemarks, string TransactionByName) {
+            return base.Channel.EmailOnCRUAction(TerminationID, EmailStage, LastActionRemarks, TransactionByName);
         }
         
-        public System.Data.DataTable GetComplainsLogs(int LOBID, int ServiceUnitID, int InfraID, int CityID, int CustomerCode, int statusID, int CaseCategoryID, int InitialStatementID, int ComplainTypeID, int AssignedToDepartID, int AssignedByDepartID, System.DateTime ToDate, System.DateTime FromDate) {
-            return base.Channel.GetComplainsLogs(LOBID, ServiceUnitID, InfraID, CityID, CustomerCode, statusID, CaseCategoryID, InitialStatementID, ComplainTypeID, AssignedToDepartID, AssignedByDepartID, ToDate, FromDate);
+        public bool TxnInternalEmail(int SignupID, string Status, string Remarks, int TransactionBy) {
+            return base.Channel.TxnInternalEmail(SignupID, Status, Remarks, TransactionBy);
         }
         
-        public System.Data.DataTable GetAggerationType() {
-            return base.Channel.GetAggerationType();
+        public bool TXNStatusActionEmail(int IpProvsionID, int LobID, int ServiceUnitID, int InfraID, int SignupID, string StatusFlag, string EmailStage) {
+            return base.Channel.TXNStatusActionEmail(IpProvsionID, LobID, ServiceUnitID, InfraID, SignupID, StatusFlag, EmailStage);
         }
         
-        public System.Data.DataTable GetIPSubnet() {
-            return base.Channel.GetIPSubnet();
+        public System.Data.DataTable GetRAM(int IsActive) {
+            return base.Channel.GetRAM(IsActive);
         }
         
-        public System.Data.DataTable GetPABXModel(int ID) {
-            return base.Channel.GetPABXModel(ID);
+        public System.Data.DataTable GetCloudType(int IsActive) {
+            return base.Channel.GetCloudType(IsActive);
         }
         
-        public System.Data.DataTable GetNumberClass() {
-            return base.Channel.GetNumberClass();
+        public System.Data.DataTable GetOS(int IsActive) {
+            return base.Channel.GetOS(IsActive);
         }
         
-        public System.Data.DataTable GetNumSeries(int CityID, int IsActive) {
-            return base.Channel.GetNumSeries(CityID, IsActive);
+        public System.Data.DataTable GetProcessorSpeed(int IsActive) {
+            return base.Channel.GetProcessorSpeed(IsActive);
         }
         
-        public System.Data.DataTable GettProductDetails(int IsActive) {
-            return base.Channel.GettProductDetails(IsActive);
+        public System.Data.DataTable GetPackageType(int IsActive) {
+            return base.Channel.GetPackageType(IsActive);
         }
         
-        public System.Data.DataTable GetProductType(int IsActive) {
-            return base.Channel.GetProductType(IsActive);
+        public System.Data.DataTable GetSoftware(string SWType, int IsActive) {
+            return base.Channel.GetSoftware(SWType, IsActive);
         }
         
-        public System.Data.DataTable GetSubRegion(int RegionID, int IsActive) {
-            return base.Channel.GetSubRegion(RegionID, IsActive);
+        public System.Data.DataTable GetStorageType(int IsActive) {
+            return base.Channel.GetStorageType(IsActive);
         }
         
-        public System.Data.DataTable GetRoutingProfile(int IsActive) {
-            return base.Channel.GetRoutingProfile(IsActive);
+        public System.Data.DataTable GetVMHost(int IsActive) {
+            return base.Channel.GetVMHost(IsActive);
         }
         
-        public System.Data.DataTable GetVCVendor(int IsActive) {
-            return base.Channel.GetVCVendor(IsActive);
+        public bool InsertRAM(string RAM, int IsActive, int TransactionBy) {
+            return base.Channel.InsertRAM(RAM, IsActive, TransactionBy);
         }
         
-        public System.Data.DataTable GetVAServices(int IsActive) {
-            return base.Channel.GetVAServices(IsActive);
+        public bool UpdateRAM(string RAM, int IsActive, int TransactionBy) {
+            return base.Channel.UpdateRAM(RAM, IsActive, TransactionBy);
         }
         
-        public bool InsertIPInventory(int NodeID, int SubnetID, string IpAddress, int TransactionBy, int StartOctate) {
-            return base.Channel.InsertIPInventory(NodeID, SubnetID, IpAddress, TransactionBy, StartOctate);
-        }
-        
-        public bool InsertVSInventory(int CityID, int SeriesID, int ClassID, int DiDRangeCount, int StartRange, int IsActive, int TransactionBy) {
-            return base.Channel.InsertVSInventory(CityID, SeriesID, ClassID, DiDRangeCount, StartRange, IsActive, TransactionBy);
-        }
-        
-        public bool InsertVCInventory(string DeviceType, int VendorID, string PortsE1, string MACAddress, string SerialNumber, int TransactionBy) {
-            return base.Channel.InsertVCInventory(DeviceType, VendorID, PortsE1, MACAddress, SerialNumber, TransactionBy);
-        }
-        
-        public System.Data.DataTable SearchIPInventory(int NodeID, int SubnetID, int CityID, int IsFree, int SignupID) {
-            return base.Channel.SearchIPInventory(NodeID, SubnetID, CityID, IsFree, SignupID);
+        public int InsertCloudDepolyment(
+                    int DeploymentID, 
+                    int SignupID, 
+                    int CloudTypeID, 
+                    int NoofVM, 
+                    int PackageTypeID, 
+                    int HighAvalibility, 
+                    int ProcessorSpeedID, 
+                    int NoofCores, 
+                    int RAMID, 
+                    int StorageTypeID, 
+                    string StorageCapacity, 
+                    int NoofNIC, 
+                    int NoofPublicIPs, 
+                    string PriIPAddress, 
+                    string PriVLAN, 
+                    string SecIPAddress, 
+                    string SecVLAN, 
+                    string PriServerLoc, 
+                    string PriServerPool, 
+                    int PriVMHostID, 
+                    string SecServerLoc, 
+                    string SecServerPool, 
+                    int SecVMHostID, 
+                    string OSName, 
+                    int ExchangeRequired, 
+                    string ExchangeName, 
+                    int NoofExchangeCALs, 
+                    int DtabaseRequired, 
+                    string DatabaseName, 
+                    int RemoteAccessRequired, 
+                    int NoofRemoteCALs, 
+                    int VPNRequired, 
+                    int NoofVPNUsers, 
+                    string VPNUserID, 
+                    string VPNPassword, 
+                    int PortalAccessRequired, 
+                    string PortalUserID, 
+                    string PortalPassword, 
+                    int VMSnapshotRequired, 
+                    string VMSnapshotFrequency, 
+                    string VMSnapshotPath, 
+                    string Remarks, 
+                    int Internet_SignupID, 
+                    int MPLSLayer3_SignupID, 
+                    int MPLSLayer2_SignupID, 
+                    int FLL_SignupID, 
+                    int Transit_SignupID, 
+                    int layer2VPN_SignupID, 
+                    int TransactionBy) {
+            return base.Channel.InsertCloudDepolyment(DeploymentID, SignupID, CloudTypeID, NoofVM, PackageTypeID, HighAvalibility, ProcessorSpeedID, NoofCores, RAMID, StorageTypeID, StorageCapacity, NoofNIC, NoofPublicIPs, PriIPAddress, PriVLAN, SecIPAddress, SecVLAN, PriServerLoc, PriServerPool, PriVMHostID, SecServerLoc, SecServerPool, SecVMHostID, OSName, ExchangeRequired, ExchangeName, NoofExchangeCALs, DtabaseRequired, DatabaseName, RemoteAccessRequired, NoofRemoteCALs, VPNRequired, NoofVPNUsers, VPNUserID, VPNPassword, PortalAccessRequired, PortalUserID, PortalPassword, VMSnapshotRequired, VMSnapshotFrequency, VMSnapshotPath, Remarks, Internet_SignupID, MPLSLayer3_SignupID, MPLSLayer2_SignupID, FLL_SignupID, Transit_SignupID, layer2VPN_SignupID, TransactionBy);
         }
         
         public bool UpdateCloudDelpoyment(
@@ -5386,73 +5769,56 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.checkComplainBySignupID(SignupID);
         }
         
-        public bool UpdateComplainFollow(int ComplaintID, int IsFollow, int TransactionByID, string TransactionByName) {
-            return base.Channel.UpdateComplainFollow(ComplaintID, IsFollow, TransactionByID, TransactionByName);
+        public int InsertSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy) {
+            return base.Channel.InsertSwitch(SwitchID, SwitchName, NodeID, SwitchModelID, SwitchPortCapacityID, SwitchIP, SwitchSequence, Description, IsActive, TransactionBy);
         }
         
-        public bool AssignedComplainsToTeam(int ComplaintID, int TeamID, int Priority, string Remarks, int AssignedByDeptID, string AssignedByPersonName, int TransactionBy) {
-            return base.Channel.AssignedComplainsToTeam(ComplaintID, TeamID, Priority, Remarks, AssignedByDeptID, AssignedByPersonName, TransactionBy);
+        public bool UpdateSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy) {
+            return base.Channel.UpdateSwitch(SwitchID, SwitchName, NodeID, SwitchModelID, SwitchPortCapacityID, SwitchIP, SwitchSequence, Description, IsActive, TransactionBy);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentResponse RainMaker.BSS_ServiceLocal.Service1Soap.UploadOTS_Attachment(RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest request) {
-            return base.Channel.UploadOTS_Attachment(request);
+        public bool UpdateSwitchPortStatus(int SwitchPortID, int StatusID) {
+            return base.Channel.UpdateSwitchPortStatus(SwitchPortID, StatusID);
         }
         
-        public string UploadOTS_Attachment(byte[] picture, string filename) {
-            RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest inValue = new RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentRequest();
-            inValue.picture = picture;
-            inValue.filename = filename;
-            RainMaker.BSS_ServiceLocal.UploadOTS_AttachmentResponse retVal = ((RainMaker.BSS_ServiceLocal.Service1Soap)(this)).UploadOTS_Attachment(inValue);
-            return retVal.UploadOTS_AttachmentResult;
+        public System.Data.DataTable GetCPEWaveLength() {
+            return base.Channel.GetCPEWaveLength();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        RainMaker.BSS_ServiceLocal.DownloadOTSFileResponse RainMaker.BSS_ServiceLocal.Service1Soap.DownloadOTSFile(RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest request) {
-            return base.Channel.DownloadOTSFile(request);
+        public System.Data.DataTable GetCPEType() {
+            return base.Channel.GetCPEType();
         }
         
-        public byte[] DownloadOTSFile(string filename) {
-            RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest inValue = new RainMaker.BSS_ServiceLocal.DownloadOTSFileRequest();
-            inValue.filename = filename;
-            RainMaker.BSS_ServiceLocal.DownloadOTSFileResponse retVal = ((RainMaker.BSS_ServiceLocal.Service1Soap)(this)).DownloadOTSFile(inValue);
-            return retVal.DownloadOTSFileResult;
+        public System.Data.DataTable GetCircuitMode() {
+            return base.Channel.GetCircuitMode();
         }
         
-        public bool UpdateFiberDetails(int SignupID, string JoinName, string TubeNameFromCustomer, string CoreColorFromCustomer, string TubeNameFromNode, string CoreColorFromNode, string CutDistance, int TransactionBy) {
-            return base.Channel.UpdateFiberDetails(SignupID, JoinName, TubeNameFromCustomer, CoreColorFromCustomer, TubeNameFromNode, CoreColorFromNode, CutDistance, TransactionBy);
+        public System.Data.DataTable GetFeedType() {
+            return base.Channel.GetFeedType();
         }
         
-        public System.Data.DataTable GetTeamPrioirty() {
-            return base.Channel.GetTeamPrioirty();
+        public System.Data.DataTable GetRouterType() {
+            return base.Channel.GetRouterType();
         }
         
-        public System.Data.DataTable GetTeamList() {
-            return base.Channel.GetTeamList();
+        public System.Data.DataTable GetExtraIp(int SignupID) {
+            return base.Channel.GetExtraIp(SignupID);
         }
         
-        public System.Data.DataTable Noctt_GetFault(int FaultID, int IsActive) {
-            return base.Channel.Noctt_GetFault(FaultID, IsActive);
+        public System.Data.DataTable GetRouter(int RouterID, int RouterTypeID, int IsActive) {
+            return base.Channel.GetRouter(RouterID, RouterTypeID, IsActive);
         }
         
-        public System.Data.DataTable Noctt_GetImpact(int ImpactID, int IsActive) {
-            return base.Channel.Noctt_GetImpact(ImpactID, IsActive);
+        public System.Data.DataTable GetModel(int ModelID, string ModelType, int IsActive, string Flag) {
+            return base.Channel.GetModel(ModelID, ModelType, IsActive, Flag);
         }
         
-        public System.Data.DataTable Noctt_GetIssueOn(int IssueOnID, int IsActive) {
-            return base.Channel.Noctt_GetIssueOn(IssueOnID, IsActive);
+        public System.Data.DataTable GetVRF(int VRFID, int ServiceUnitID, int IsActive) {
+            return base.Channel.GetVRF(VRFID, ServiceUnitID, IsActive);
         }
         
-        public System.Data.DataTable Noctt_GetEscalatedPerson(int EscalatedPersonID, int RegionID, int IsActive) {
-            return base.Channel.Noctt_GetEscalatedPerson(EscalatedPersonID, RegionID, IsActive);
-        }
-        
-        public System.Data.DataTable Noctt_GetModeofTicket(int ModeofTicketID, int IsActive) {
-            return base.Channel.Noctt_GetModeofTicket(ModeofTicketID, IsActive);
-        }
-        
-        public System.Data.DataTable GetGrouplist(int GroupID, int IsActive) {
-            return base.Channel.GetGrouplist(GroupID, IsActive);
+        public System.Data.DataTable GetOperation(int OperationID, int IsActive) {
+            return base.Channel.GetOperation(OperationID, IsActive);
         }
         
         public System.Data.DataTable GetNMSStatus(string IPAddress, string IfName) {
@@ -6180,105 +6546,12 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.GetInternalStatusHist(SignupID);
         }
         
-        public bool TxnInternalEmail(int SignupID, string Status, string Remarks, int TransactionBy) {
-            return base.Channel.TxnInternalEmail(SignupID, Status, Remarks, TransactionBy);
+        public bool CustomerMailofTDM(string OrderNo) {
+            return base.Channel.CustomerMailofTDM(OrderNo);
         }
         
-        public bool TXNStatusActionEmail(int IpProvsionID, int LobID, int ServiceUnitID, int InfraID, int SignupID, string StatusFlag, string EmailStage) {
-            return base.Channel.TXNStatusActionEmail(IpProvsionID, LobID, ServiceUnitID, InfraID, SignupID, StatusFlag, EmailStage);
-        }
-        
-        public System.Data.DataTable GetRAM(int IsActive) {
-            return base.Channel.GetRAM(IsActive);
-        }
-        
-        public System.Data.DataTable GetCloudType(int IsActive) {
-            return base.Channel.GetCloudType(IsActive);
-        }
-        
-        public System.Data.DataTable GetOS(int IsActive) {
-            return base.Channel.GetOS(IsActive);
-        }
-        
-        public System.Data.DataTable GetProcessorSpeed(int IsActive) {
-            return base.Channel.GetProcessorSpeed(IsActive);
-        }
-        
-        public System.Data.DataTable GetPackageType(int IsActive) {
-            return base.Channel.GetPackageType(IsActive);
-        }
-        
-        public System.Data.DataTable GetSoftware(string SWType, int IsActive) {
-            return base.Channel.GetSoftware(SWType, IsActive);
-        }
-        
-        public System.Data.DataTable GetStorageType(int IsActive) {
-            return base.Channel.GetStorageType(IsActive);
-        }
-        
-        public System.Data.DataTable GetVMHost(int IsActive) {
-            return base.Channel.GetVMHost(IsActive);
-        }
-        
-        public bool InsertRAM(string RAM, int IsActive, int TransactionBy) {
-            return base.Channel.InsertRAM(RAM, IsActive, TransactionBy);
-        }
-        
-        public bool UpdateRAM(string RAM, int IsActive, int TransactionBy) {
-            return base.Channel.UpdateRAM(RAM, IsActive, TransactionBy);
-        }
-        
-        public int InsertCloudDepolyment(
-                    int DeploymentID, 
-                    int SignupID, 
-                    int CloudTypeID, 
-                    int NoofVM, 
-                    int PackageTypeID, 
-                    int HighAvalibility, 
-                    int ProcessorSpeedID, 
-                    int NoofCores, 
-                    int RAMID, 
-                    int StorageTypeID, 
-                    string StorageCapacity, 
-                    int NoofNIC, 
-                    int NoofPublicIPs, 
-                    string PriIPAddress, 
-                    string PriVLAN, 
-                    string SecIPAddress, 
-                    string SecVLAN, 
-                    string PriServerLoc, 
-                    string PriServerPool, 
-                    int PriVMHostID, 
-                    string SecServerLoc, 
-                    string SecServerPool, 
-                    int SecVMHostID, 
-                    string OSName, 
-                    int ExchangeRequired, 
-                    string ExchangeName, 
-                    int NoofExchangeCALs, 
-                    int DtabaseRequired, 
-                    string DatabaseName, 
-                    int RemoteAccessRequired, 
-                    int NoofRemoteCALs, 
-                    int VPNRequired, 
-                    int NoofVPNUsers, 
-                    string VPNUserID, 
-                    string VPNPassword, 
-                    int PortalAccessRequired, 
-                    string PortalUserID, 
-                    string PortalPassword, 
-                    int VMSnapshotRequired, 
-                    string VMSnapshotFrequency, 
-                    string VMSnapshotPath, 
-                    string Remarks, 
-                    int Internet_SignupID, 
-                    int MPLSLayer3_SignupID, 
-                    int MPLSLayer2_SignupID, 
-                    int FLL_SignupID, 
-                    int Transit_SignupID, 
-                    int layer2VPN_SignupID, 
-                    int TransactionBy) {
-            return base.Channel.InsertCloudDepolyment(DeploymentID, SignupID, CloudTypeID, NoofVM, PackageTypeID, HighAvalibility, ProcessorSpeedID, NoofCores, RAMID, StorageTypeID, StorageCapacity, NoofNIC, NoofPublicIPs, PriIPAddress, PriVLAN, SecIPAddress, SecVLAN, PriServerLoc, PriServerPool, PriVMHostID, SecServerLoc, SecServerPool, SecVMHostID, OSName, ExchangeRequired, ExchangeName, NoofExchangeCALs, DtabaseRequired, DatabaseName, RemoteAccessRequired, NoofRemoteCALs, VPNRequired, NoofVPNUsers, VPNUserID, VPNPassword, PortalAccessRequired, PortalUserID, PortalPassword, VMSnapshotRequired, VMSnapshotFrequency, VMSnapshotPath, Remarks, Internet_SignupID, MPLSLayer3_SignupID, MPLSLayer2_SignupID, FLL_SignupID, Transit_SignupID, layer2VPN_SignupID, TransactionBy);
+        public bool InsertArea(string area, int CityID, int IsActive, string TransBy) {
+            return base.Channel.InsertArea(area, CityID, IsActive, TransBy);
         }
         
         public bool InsertSalesperson(int InfraID, string SalesPersonName, int IsActive) {
@@ -6297,20 +6570,114 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.InsertBandwith(Bandwidth, ServiceID);
         }
         
-        public int InsertMasterCustomer(int CustomerCode, string Customer, string Logo, string Country, string State, string City, string EmailAddress, string Phone, string Remarks, int IsActive, int TransactionBy) {
-            return base.Channel.InsertMasterCustomer(CustomerCode, Customer, Logo, Country, State, City, EmailAddress, Phone, Remarks, IsActive, TransactionBy);
+        public int InsertMasterCustomer(
+                    int CustomerCode, 
+                    string Customer, 
+                    string Logo, 
+                    string Country, 
+                    string State, 
+                    string City, 
+                    string EmailAddress, 
+                    string Phone, 
+                    string NTN, 
+                    string CNIC, 
+                    string CustomerType, 
+                    string WebsiteURL, 
+                    string Address, 
+                    string Remarks, 
+                    int IsActive, 
+                    int ISAPP_Customer, 
+                    int TransactionBy) {
+            return base.Channel.InsertMasterCustomer(CustomerCode, Customer, Logo, Country, State, City, EmailAddress, Phone, NTN, CNIC, CustomerType, WebsiteURL, Address, Remarks, IsActive, ISAPP_Customer, TransactionBy);
         }
         
-        public bool UpdateMasterCustomer(int CustomerCode, string Customer, string Logo, string Country, string State, string City, string EmailAddress, string Phone, string Remarks, int IsActive, int TransactionBy) {
-            return base.Channel.UpdateMasterCustomer(CustomerCode, Customer, Logo, Country, State, City, EmailAddress, Phone, Remarks, IsActive, TransactionBy);
+        public bool UpdateMasterCustomer(
+                    int CustomerCode, 
+                    string Customer, 
+                    string Logo, 
+                    string Country, 
+                    string State, 
+                    string City, 
+                    string EmailAddress, 
+                    string Phone, 
+                    string NTN, 
+                    string CNIC, 
+                    string CustomerType, 
+                    string WebsiteURL, 
+                    string Address, 
+                    string Remarks, 
+                    int IsActive, 
+                    int ISAPP_Customer, 
+                    int TransactionBy) {
+            return base.Channel.UpdateMasterCustomer(CustomerCode, Customer, Logo, Country, State, City, EmailAddress, Phone, NTN, CNIC, CustomerType, WebsiteURL, Address, Remarks, IsActive, ISAPP_Customer, TransactionBy);
         }
         
-        public System.Data.DataTable SearchMasterCustomer(int CustomerCode, string CustomerName, int IsActive) {
-            return base.Channel.SearchMasterCustomer(CustomerCode, CustomerName, IsActive);
+        public System.Data.DataTable SearchMasterCustomer(int CustomerCode, string CustomerName, string NTN, string CNIC, int IsActive) {
+            return base.Channel.SearchMasterCustomer(CustomerCode, CustomerName, NTN, CNIC, IsActive);
+        }
+        
+        public System.Data.DataTable GetCustomerType() {
+            return base.Channel.GetCustomerType();
+        }
+        
+        public System.Data.DataTable GetGPMasterCode(int CustomerCode) {
+            return base.Channel.GetGPMasterCode(CustomerCode);
+        }
+        
+        public bool InsertGPMAster(int CustomerCode, string GPMasterCode) {
+            return base.Channel.InsertGPMAster(CustomerCode, GPMasterCode);
+        }
+        
+        public System.Data.DataTable GetConclusionofCircuits(int CustomerCode) {
+            return base.Channel.GetConclusionofCircuits(CustomerCode);
+        }
+        
+        public System.Data.DataTable GetAppUserRoles() {
+            return base.Channel.GetAppUserRoles();
+        }
+        
+        public bool InsertAPPUserLogin(string UserName, string UserLogin, string Password, int RoleID, int BSSMasterCode, int IsActive, int TransactionBy) {
+            return base.Channel.InsertAPPUserLogin(UserName, UserLogin, Password, RoleID, BSSMasterCode, IsActive, TransactionBy);
+        }
+        
+        public bool UpdateAPPUserLogin(int UserID, string UserName, string UserLogin, string Password, int RoleID, int IsActive, int TransactionBy) {
+            return base.Channel.UpdateAPPUserLogin(UserID, UserName, UserLogin, Password, RoleID, IsActive, TransactionBy);
+        }
+        
+        public System.Data.DataTable SearchAppUserLogin(int CustomerCode) {
+            return base.Channel.SearchAppUserLogin(CustomerCode);
+        }
+        
+        public bool DeleteAppUserLogin(int UserID) {
+            return base.Channel.DeleteAppUserLogin(UserID);
         }
         
         public System.Data.DataTable GetMasterCustomer() {
             return base.Channel.GetMasterCustomer();
+        }
+        
+        public System.Data.DataTable SelectContactDetails(int SignupID, int CustomerCode) {
+            return base.Channel.SelectContactDetails(SignupID, CustomerCode);
+        }
+        
+        public bool UpdateContactDetails(
+                    int SignupID, 
+                    int CustomerCode, 
+                    string UpdateFlag, 
+                    string Contact_Name, 
+                    string Contact_Office, 
+                    string Contact_Phone, 
+                    string Contact_Cell, 
+                    string Contact_Fax, 
+                    string Contact_Email, 
+                    string Contact_SMS, 
+                    string Bil_Name, 
+                    string Bil_Phone, 
+                    string Bil_Email, 
+                    string Bil_Cell, 
+                    string Bil_Fax, 
+                    int TransactionBy) {
+            return base.Channel.UpdateContactDetails(SignupID, CustomerCode, UpdateFlag, Contact_Name, Contact_Office, Contact_Phone, Contact_Cell, Contact_Fax, Contact_Email, Contact_SMS, Bil_Name, Bil_Phone, Bil_Email, Bil_Cell, Bil_Fax, TransactionBy);
         }
         
         public bool InsertProjects(int CustomerCode, int ProjectCode, string Project, string PO, string Description, int TransactionBy) {
@@ -6848,58 +7215,6 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.SearchSwitches(CityID, NodeID, SwitchModelID, SwitchPortCapacityID, SwitchName);
         }
         
-        public int InsertSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy) {
-            return base.Channel.InsertSwitch(SwitchID, SwitchName, NodeID, SwitchModelID, SwitchPortCapacityID, SwitchIP, SwitchSequence, Description, IsActive, TransactionBy);
-        }
-        
-        public bool UpdateSwitch(int SwitchID, string SwitchName, int NodeID, int SwitchModelID, int SwitchPortCapacityID, string SwitchIP, string SwitchSequence, string Description, int IsActive, int TransactionBy) {
-            return base.Channel.UpdateSwitch(SwitchID, SwitchName, NodeID, SwitchModelID, SwitchPortCapacityID, SwitchIP, SwitchSequence, Description, IsActive, TransactionBy);
-        }
-        
-        public bool UpdateSwitchPortStatus(int SwitchPortID, int StatusID) {
-            return base.Channel.UpdateSwitchPortStatus(SwitchPortID, StatusID);
-        }
-        
-        public System.Data.DataTable GetCPEWaveLength() {
-            return base.Channel.GetCPEWaveLength();
-        }
-        
-        public System.Data.DataTable GetCPEType() {
-            return base.Channel.GetCPEType();
-        }
-        
-        public System.Data.DataTable GetCircuitMode() {
-            return base.Channel.GetCircuitMode();
-        }
-        
-        public System.Data.DataTable GetFeedType() {
-            return base.Channel.GetFeedType();
-        }
-        
-        public System.Data.DataTable GetRouterType() {
-            return base.Channel.GetRouterType();
-        }
-        
-        public System.Data.DataTable GetExtraIp(int SignupID) {
-            return base.Channel.GetExtraIp(SignupID);
-        }
-        
-        public System.Data.DataTable GetRouter(int RouterID, int RouterTypeID, int IsActive) {
-            return base.Channel.GetRouter(RouterID, RouterTypeID, IsActive);
-        }
-        
-        public System.Data.DataTable GetModel(int ModelID, string ModelType, int IsActive, string Flag) {
-            return base.Channel.GetModel(ModelID, ModelType, IsActive, Flag);
-        }
-        
-        public System.Data.DataTable GetVRF(int VRFID, int ServiceUnitID, int IsActive) {
-            return base.Channel.GetVRF(VRFID, ServiceUnitID, IsActive);
-        }
-        
-        public System.Data.DataTable GetOperation(int OperationID, int IsActive) {
-            return base.Channel.GetOperation(OperationID, IsActive);
-        }
-        
         public System.Data.DataTable AuthenticateUser(string username, string pass) {
             return base.Channel.AuthenticateUser(username, pass);
         }
@@ -7096,6 +7411,14 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.GetCountries();
         }
         
+        public System.Data.DataTable GetCountries_New() {
+            return base.Channel.GetCountries_New();
+        }
+        
+        public System.Data.DataTable GetCitiesByCountry(int CountryID) {
+            return base.Channel.GetCitiesByCountry(CountryID);
+        }
+        
         public System.Data.DataTable GetSiteB_ID(string B_Company) {
             return base.Channel.GetSiteB_ID(B_Company);
         }
@@ -7212,8 +7535,8 @@ namespace RainMaker.BSS_ServiceLocal {
                     string ThirdPartyAccountID, 
                     double OTC_Party, 
                     double MRC_Party, 
-                    double InfraCost, 
                     double ProposedCost, 
+                    double InfraCost, 
                     int EquipmentPropertyID, 
                     double EquipmentCost, 
                     double ROI_Month, 
@@ -7265,7 +7588,7 @@ namespace RainMaker.BSS_ServiceLocal {
                     int StatusID, 
                     int TransactionBy, 
                     int Cus_Mail) {
-            return base.Channel.InsertCustomerSignup(SignupID, LOBID, ServiceUnitID, InfraID, CustomerCode, ProjectCode, LocationCode, CircuitCode, CircuitName, Address, Phone, Email, Fax, Country, TD_City, CityID, AreaID, NodeID, BusinessTypeID, NTN, Contact_Name, Contact_Department, Contact_Designation, Contact_Office, Contact_Phone, Contact_Cell, Contact_Fax, Contact_Email, Contact_SMS, CNIC, CNICExpiryDate, PriorityID, IsSLA, SLA, IsBOG, BOG, IsSignup, Signup, TD_ConnectivityType, TD_BandwidthType, TD_CircuitSpeed, BandwidthID, ULPackageID, DLPackageID, InfraMedium, InfraLength, IsAddReq, IsVOIP, IsVC, IsVPN, IsExtraIP, TD_ContractPeriod, Bil_Name, Bil_Company, Bil_Address, Bil_Country, Bil_City, Bil_PostalCode, Bil_Phone, Bil_Email, Bil_Cell, Bil_Fax, Bil_Currency, OTC_Type, OTC_Charges, PaymentTermID, MRC_Charges, CircuitOwnerID, ThirdPartyAccountID, OTC_Party, MRC_Party, InfraCost, ProposedCost, EquipmentPropertyID, EquipmentCost, ROI_Month, PortCost, SiteNature, ProjectMRC, ProjectOTC, ProjectInvestment, ProjectPayBack, IsAdvancePayment, AdvanceAmount, ChequeNo, ReceiptNo, CircuitTypeID, BackupInfraID, BackupOwnerID, BackupOTC, BackupMRC, SD_SiteA_Interface, SD_SiteB_Interface, SID_A_Company, SID_A_Address, SID_Country, SID_A_City, SID_A_Cell, SID_A_Phone, SID_A_Fax, SID_A_Email, SID_B_Company, SID_B_Address, SID_B_Country, SID_B_City, SID_B_Cell, SID_B_Phone, SID_B_Fax, SID_B_Email, ParentID, SiteB, GPID, ClientRefID, PartnerID, IsGSAC, SignupDate, SalesPersonID, OrderDate, WorkingDays, RFSDate, Notes, StatusID, TransactionBy, Cus_Mail);
+            return base.Channel.InsertCustomerSignup(SignupID, LOBID, ServiceUnitID, InfraID, CustomerCode, ProjectCode, LocationCode, CircuitCode, CircuitName, Address, Phone, Email, Fax, Country, TD_City, CityID, AreaID, NodeID, BusinessTypeID, NTN, Contact_Name, Contact_Department, Contact_Designation, Contact_Office, Contact_Phone, Contact_Cell, Contact_Fax, Contact_Email, Contact_SMS, CNIC, CNICExpiryDate, PriorityID, IsSLA, SLA, IsBOG, BOG, IsSignup, Signup, TD_ConnectivityType, TD_BandwidthType, TD_CircuitSpeed, BandwidthID, ULPackageID, DLPackageID, InfraMedium, InfraLength, IsAddReq, IsVOIP, IsVC, IsVPN, IsExtraIP, TD_ContractPeriod, Bil_Name, Bil_Company, Bil_Address, Bil_Country, Bil_City, Bil_PostalCode, Bil_Phone, Bil_Email, Bil_Cell, Bil_Fax, Bil_Currency, OTC_Type, OTC_Charges, PaymentTermID, MRC_Charges, CircuitOwnerID, ThirdPartyAccountID, OTC_Party, MRC_Party, ProposedCost, InfraCost, EquipmentPropertyID, EquipmentCost, ROI_Month, PortCost, SiteNature, ProjectMRC, ProjectOTC, ProjectInvestment, ProjectPayBack, IsAdvancePayment, AdvanceAmount, ChequeNo, ReceiptNo, CircuitTypeID, BackupInfraID, BackupOwnerID, BackupOTC, BackupMRC, SD_SiteA_Interface, SD_SiteB_Interface, SID_A_Company, SID_A_Address, SID_Country, SID_A_City, SID_A_Cell, SID_A_Phone, SID_A_Fax, SID_A_Email, SID_B_Company, SID_B_Address, SID_B_Country, SID_B_City, SID_B_Cell, SID_B_Phone, SID_B_Fax, SID_B_Email, ParentID, SiteB, GPID, ClientRefID, PartnerID, IsGSAC, SignupDate, SalesPersonID, OrderDate, WorkingDays, RFSDate, Notes, StatusID, TransactionBy, Cus_Mail);
         }
         
         public bool UpdateCustomerSignups(
@@ -7415,8 +7738,29 @@ namespace RainMaker.BSS_ServiceLocal {
             return base.Channel.GetNewCircuitCode(CustomerCode, ProjectCode);
         }
         
-        public System.Data.DataTable GetCustomerSignupsView(string BSSCode, string Company, int OrderId, string Infra, string Status, string CMSID, string GPID, int CityID, int OwnerID, int CircuitOwnerID, int CustomerCode, int ProjectCode) {
-            return base.Channel.GetCustomerSignupsView(BSSCode, Company, OrderId, Infra, Status, CMSID, GPID, CityID, OwnerID, CircuitOwnerID, CustomerCode, ProjectCode);
+        public System.Data.DataTable GetCustomerSignupsView(
+                    int SignupID, 
+                    string BSSCODE, 
+                    string CMSID, 
+                    string GPID, 
+                    int CircuitStatusID, 
+                    int InfraID, 
+                    int CityID, 
+                    int OwnerID, 
+                    string CircuitName, 
+                    int CircuitOwnerID, 
+                    int IsCOARecived, 
+                    int CustomerCode, 
+                    int ProjectCode, 
+                    int Primary_RingID, 
+                    string Primary_IpAddres, 
+                    string Primary_CPE_IpAddress, 
+                    int NodeID, 
+                    string ExtraIP, 
+                    int Primary_SwitchID, 
+                    System.DateTime FromDate, 
+                    System.DateTime ToDate) {
+            return base.Channel.GetCustomerSignupsView(SignupID, BSSCODE, CMSID, GPID, CircuitStatusID, InfraID, CityID, OwnerID, CircuitName, CircuitOwnerID, IsCOARecived, CustomerCode, ProjectCode, Primary_RingID, Primary_IpAddres, Primary_CPE_IpAddress, NodeID, ExtraIP, Primary_SwitchID, FromDate, ToDate);
         }
         
         public System.Data.DataTable GetSearchOrdersByCompanyAndOrderNo(string Company, string OrderNo) {
@@ -7457,14 +7801,6 @@ namespace RainMaker.BSS_ServiceLocal {
         
         public bool Customer_Email(string OrderNo) {
             return base.Channel.Customer_Email(OrderNo);
-        }
-        
-        public bool CustomerMailofTDM(string OrderNo) {
-            return base.Channel.CustomerMailofTDM(OrderNo);
-        }
-        
-        public bool InsertArea(string area, int CityID, int IsActive, string TransBy) {
-            return base.Channel.InsertArea(area, CityID, IsActive, TransBy);
         }
     }
 }

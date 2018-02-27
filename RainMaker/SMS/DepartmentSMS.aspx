@@ -41,6 +41,11 @@
                                                     </div>
 
                                                     <div class="col-md-4 col-sm-12 col-lg-4">
+                                                        <asp:DropDownList ID="cmbDepartment" OnSelectedIndexChanged="cmbDepartment_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                                                        <span class="floating-label-select">Department</span>
+                                                    </div>
+
+                                                    <div class="col-md-4 col-sm-12 col-lg-4">
                                                         <asp:DropDownList ID="cmbGroup" runat="server" OnSelectedIndexChanged="cmbGroup_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                                         <span class="floating-label-select">Groups</span>
                                                     </div>

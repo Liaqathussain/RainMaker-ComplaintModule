@@ -31,6 +31,8 @@ namespace RainMaker.ComplainManagement
         //BSS_ServiceLocal.Service1SoapClient objBSS = new BSS_ServiceLocal.Service1SoapClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+             if (this.Session["UserID"] != null)
+            {
             if (!IsPostBack)
             {
                 DataTable dt = (DataTable)Session["GridView"];
@@ -58,6 +60,11 @@ namespace RainMaker.ComplainManagement
                 dtComplainReceived.SelectedDate = DateTime.Now;
                 //objBL.loadLoggedBy(tbLoggedBy);
             }
+            }
+             else
+             {
+                 Response.Redirect("/Login.aspx", true);
+             }
         }
 
 

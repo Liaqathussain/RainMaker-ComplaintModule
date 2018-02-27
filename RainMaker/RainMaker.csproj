@@ -146,6 +146,12 @@
     <Content Include="Scripts\js\plugins\morris\morris.js" />
     <Content Include="Scripts\js\plugins\morris\morris.min.js" />
     <Content Include="Scripts\js\plugins\morris\raphael.min.js" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BSS_ServiceLocal\BSS_Service.wsdl" />
+    <None Include="Service References\BSS_Service\BSS_Service1.disco" />
     <None Include="Service References\BSS_ServiceLocal\BSS_Service.disco" />
     <None Include="Service References\BSS_ServiceLocal\configuration91.svcinfo" />
     <None Include="Service References\BSS_ServiceLocal\configuration.svcinfo" />
@@ -166,8 +172,7 @@
     <Content Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
-    <None Include="Service References\BSS_ServiceLocal\BSS_Service.wsdl" />
-    <None Include="Service References\BSS_Service\BSS_Service.disco" />
+    <None Include="Service References\BSS_Service\BSS_Service1.wsdl" />
     <None Include="Service References\BSS_Service\configuration91.svcinfo" />
     <None Include="Service References\BSS_Service\configuration.svcinfo" />
     <None Include="Service References\BSS_Service\Reference.svcmap">
@@ -256,6 +261,7 @@
     <Compile Include="ComplainManagement\ComplainManager.aspx.designer.cs">
       <DependentUpon>ComplainManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ComplainManagement\gvComplainCircuits.cs" />
     <Compile Include="ComplainManagement\MultipleComplainForm.aspx.cs">
       <DependentUpon>MultipleComplainForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +375,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Service References\BSS_ServiceLocal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -455,7 +466,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Form_Site2.Master" />
-    <None Include="Service References\BSS_Service\BSS_Service.wsdl" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -529,6 +539,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

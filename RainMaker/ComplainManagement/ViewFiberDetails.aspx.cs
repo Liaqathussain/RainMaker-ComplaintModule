@@ -12,6 +12,8 @@ namespace RainMaker.ComplainManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+             if (this.Session["UserID"] != null)
+            {
             BSS_Service.Service1SoapClient objBSS = new BSS_Service.Service1SoapClient();
             int _SignupID = 0;
             if (!IsPostBack)
@@ -25,6 +27,11 @@ namespace RainMaker.ComplainManagement
 
 
             }
+            }
+             else
+             {
+                 Response.Redirect("/Login.aspx", true);
+             } 
 
         }
     }

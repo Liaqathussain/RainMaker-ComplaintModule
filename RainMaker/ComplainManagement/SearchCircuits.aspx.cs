@@ -17,6 +17,8 @@ namespace RainMaker.ComplainManagement
         static DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+             if (this.Session["UserID"] != null)
+            {
             if (!Page.IsPostBack)
             {
                 tbCMSID.Text = string.Empty;
@@ -31,6 +33,11 @@ namespace RainMaker.ComplainManagement
 
 
             }
+            }
+             else
+             {
+                 Response.Redirect("/Login.aspx", true);
+             } 
         }
 
         public void LoadComboBox()

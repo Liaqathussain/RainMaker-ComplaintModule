@@ -29,7 +29,7 @@ namespace RainMaker.SMS
         {
             if (isValidate().Equals(true))
             {
-                objBSS.SendSMS("External SMS", tbMobileNo.Text, tbSMS.Text, 1);
+                objBSS.SendSMS(0,"External SMS", tbMobileNo.Text, tbSMS.Text, 1);
                 lblSave.Text = "Message send successfully";
                 lblSave.Visible = true;
             }

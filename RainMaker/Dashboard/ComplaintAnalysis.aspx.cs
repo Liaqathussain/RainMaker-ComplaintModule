@@ -484,7 +484,7 @@ namespace RainMaker.Dashboard
         {
 
             DataTable dt_Dep = new DataTable();
-            dt_Dep = obj.GetComplainDetailsviaDepart();
+            dt_Dep =  obj.GetComplainDetailsviaDepart();
             List<DepartData> list = new List<DepartData>();
             foreach (DataRow row in dt_Dep.Rows)
             {

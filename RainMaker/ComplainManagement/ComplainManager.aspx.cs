@@ -29,6 +29,7 @@ namespace RainMaker.ComplainManagement
         int DeptID;
         int RoleID=0;
         BL objBL = new BL();
+        System.Data.DataTable dt;
         static System.Data.DataTable dtForExcel ;
         //BSS_ServiceLocal.Service1SoapClient objBSS = new BSS_ServiceLocal.Service1SoapClient();
         BSS_Service.Service1SoapClient objBSS = new BSS_Service.Service1SoapClient();
@@ -37,19 +38,26 @@ namespace RainMaker.ComplainManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (this.Session["UserID"] != null)
             {
-                RoleID = Convert.ToInt32(Session["RoleID"]);
-                DeptID = Convert.ToInt16(Session["DepartmentID"]);
-                LoadCombos();
-                if (RoleID == 1)
+                if (!Page.IsPostBack)
                 {
-                    pnlSMS.Visible = true;
+                    RoleID = Convert.ToInt32(Session["RoleID"]);
+                    DeptID = Convert.ToInt16(Session["DepartmentID"]);
+                    LoadCombos();
+                    if (RoleID == 1 || RoleID == 43)
+                    {
+                        pnlSMS.Visible = true;
+                    }
+                    else
+                    {
+                        pnlSMS.Visible = false;
+                    }
                 }
-                else
-                {
-                    pnlSMS.Visible = false;
-                }
+            }
+            else
+            {
+                Response.Redirect("/Login.aspx", true);
             }
         }
 
@@ -165,9 +173,12 @@ namespace RainMaker.ComplainManagement
         {
             if (e.CommandName == "Complain Closure" || e.CommandName == "Complain Forward" || e.CommandName == "ComplainSolve" || e.CommandName == "View History" || e.CommandName == "Ticket No")
             {
+
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow item = gvComplainCircuits.Rows[index];
                 string click = e.CommandName;
+
+               
                 //Session["Complain_TicketNo"] = item["TicketNo"].Text;
                 //Session["ComplainID"] = item["ComplaintID"].Text;
                 Session["Complain_HistoryFlag"] = 1;
@@ -184,8 +195,9 @@ namespace RainMaker.ComplainManagement
                 if (click.Equals("Ticket No"))
                 {
                     //Response.Redirect("~\\ComplainForm.aspx?click=" + click);
-                    Response.Redirect("~\\ComplainManagement\\ComplainForm.aspx?SignupID=" + Session["SignupID"] + "&ComplainID=" + Session["ComplainID"] + "&Flag=View",true);
-                    ScriptManager.RegisterStartupScript(Page, typeof(System.Web.UI.Page), "OpenWindow", "window.open('" + "../ComplainManagement/ComplainForm.aspx?SignupID=" + Session["SignupID"] + "&ComplainID=" + Session["ComplainID"] + "&Flag=View", true);
+                    //Response.Redirect("~\\ComplainManagement\\ComplainForm.aspx?SignupID=" + Session["SignupID"] + "&ComplainID=" + Session["ComplainID"] + "&Flag=View",true);
+                    ScriptManager.RegisterStartupScript(Page, typeof(System.Web.UI.Page), "OpenWindow", "window.open('" + "../ComplainManagement/ComplainForm.aspx?SignupID=" + Session["SignupID"] + "&ComplainID=" + Session["ComplainID"] + "&Flag=View" + "');", true);
+                    //ScriptManager.RegisterStartupScript(Page, typeof(System.Web.UI.Page), "OpenWindow", "window.open('" + "../ComplainManagement/ComplaintClose.aspx?ComplainID=" + Session["ComplainID"] + "&SignupID=" + Session["SignupID"] + "');", true);
                 }
 
                 else if (click.Equals("View History"))
@@ -552,10 +564,7 @@ namespace RainMaker.ComplainManagement
 
                 int SearchFollow = 0;
 
-
-
-
-                System.Data.DataTable dt = objBSS.SearchComplainCircuits(tbTicketNumber.Text,
+                dt = objBSS.SearchComplainCircuits(tbTicketNumber.Text,
                 Sign, tbCMSID.Text, tbGPID.Text, tbCircuitName.Text,
                 (cmbTicketType.Text != "Select Ticket Type" ? cmbTicketType.Text : ""),
                 Convert.ToInt16(cmbComplainStatus.SelectedValue),
@@ -621,20 +630,29 @@ namespace RainMaker.ComplainManagement
 
         }
 
+
+       
+
+
         protected void btnSendSMS_Click(object sender, EventArgs e)
         { 
             try
             {
                 if (gvComplainCircuits.Rows.Count > 0)
                 {
+
                     foreach (GridViewRow item in gvComplainCircuits.Rows)
+
                     {
+                       
                         var cb = (System.Web.UI.WebControls.CheckBox)item.FindControl("cb_Select");
                         if (cb.Checked == true)
                         {
                             string msg = tbMessage.Text;
                             
                             string contactno = item.Cells[33].Text;
+                            string ComplaintID = item.Cells[5].Text;
+
                             //contactno = "923212310024";
                             //if ((contactno != "") || (contactno != "O") || (contactno != "0") || (contactno != "N/A"))
                             if(msg.Contains("&"))
@@ -656,7 +674,14 @@ namespace RainMaker.ComplainManagement
                                     {
                                         contactno = "92" + contactno.Replace("0", "");
                                     }
-                                    objBSS.SendSMS("External SMS", contactno, msg, 1);
+                                    if (objBSS.SendSMS(Convert.ToInt32(ComplaintID), "External SMS", contactno, msg, 1))
+                                    {
+                                         lblSMSSatatus.Text = "Message Send Succsessfully";
+                                    }
+                                    else
+                                    {
+                                        lblSMSSatatus.Text = "Failed to send";
+                                    }
                                     
                                 }
                                 else

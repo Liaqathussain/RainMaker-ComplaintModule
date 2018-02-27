@@ -41,6 +41,8 @@ namespace RainMaker.ComplainManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (this.Session["UserID"] != null)
+            {
             if (!IsPostBack)
             {
                 
@@ -57,6 +59,11 @@ namespace RainMaker.ComplainManagement
                frmOts_ComplainClousrevb_Load();
 
                 
+            }
+            }
+            else
+            {
+                Response.Redirect("/Login.aspx", true);
             }
 
         }

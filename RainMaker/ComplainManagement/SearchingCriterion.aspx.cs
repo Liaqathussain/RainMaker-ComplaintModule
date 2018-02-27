@@ -21,12 +21,19 @@ namespace RainMaker.ComplainManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
+             if (this.Session["UserID"] != null)
+            {
             if (!IsPostBack)
             {
                 LoadCombo();
                 dtSLA.SelectedDate = DateTime.Now;
                 
             }
+            }
+             else
+             {
+                 Response.Redirect("/Login.aspx", true);
+             } 
         }
 
         public void LoadCombo()

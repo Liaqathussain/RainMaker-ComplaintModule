@@ -40,7 +40,8 @@ namespace RainMaker.ComplainManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (this.Session["UserID"] != null)
+            {
                 click = base.Request.QueryString["click"].ToString();
 
                 if (click == "ViewCircuitTransaction")
@@ -76,17 +77,14 @@ namespace RainMaker.ComplainManagement
                     pnlViewCustomerInfromation.Visible = false;
                     cntViewCustomerInfromation.Visible = false;
                     
-                }
-
+                }   
+        }
+        else
+        {
+            Response.Redirect("/Login.aspx", true);
+        }
                 
-                   
-                
-            }
-
-        
-        
-
-      
+            }    
 
     }
 }

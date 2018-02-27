@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Form_Site2.master.cs" Inherits="RainMaker.Form_Site2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+        <title></title>
+
+     
+        <link href="../Styles/css/bootstrap.css" rel="Stylesheet" type="text/css" />
+        <link href="../Styles/css/signin.css" rel="Stylesheet" type="text/css" />   
+        <link href="../Styles/css/cover.css" rel="Stylesheet" type="text/css" />
+    
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+    <body>
+
+        <div class="site-wrapper">
+
+            <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">    
+                </asp:ContentPlaceHolder>
+
+            </div>
+
+            </div>
+
+        </div>
+
+        <script src="../Scripts/bootstrap.js"></script>
+    </body>
+</html>

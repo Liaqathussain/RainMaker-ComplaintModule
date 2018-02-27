@@ -19,7 +19,8 @@ namespace RainMaker.SMS
             {
                 getCities();
                 getGroup();
-                GetEmployeeDetails(0, 0);
+                getDepartment();
+                GetEmployeeDetails(0, 0,0);
             }
 
         }
@@ -50,11 +51,24 @@ namespace RainMaker.SMS
             }
         }
 
-        public void GetEmployeeDetails(int GroupID, int CityID)
+        public void getDepartment()
         {
             try
             {
-                dynamic dt = objBSS.GetEmployeeViaGroup(GroupID, CityID);
+                objBL.GetDepartment(cmbDepartment);
+
+            }
+            catch (Exception ex)
+            {
+                //Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical, Title: "Error Message");
+            }
+        }
+
+        public void GetEmployeeDetails(int GroupID, int CityID, int DeptID)
+        {
+            try
+            {
+                dynamic dt = objBSS.GetEmployeeDetails(GroupID, CityID, DeptID);
                 if (dt.Rows.Count > 0)
                 {
                     if (grdEmployee.DataSource == null)
@@ -74,6 +88,8 @@ namespace RainMaker.SMS
                 else
                 {
                     grdEmployee.DataSource = null;
+                    grdEmployee.DataSource = dt;
+                    grdEmployee.DataBind();
                 }
             }
             catch (Exception ex)
@@ -82,14 +98,29 @@ namespace RainMaker.SMS
             }
         }
 
+
         protected void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!cmbGroup.SelectedValue.Equals(0))
             {
+                int DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
                 int groupID = Convert.ToInt32(cmbGroup.SelectedValue);
                 int cityID = Convert.ToInt32(cmbCity.SelectedValue);
 
-                GetEmployeeDetails(groupID, cityID);
+                GetEmployeeDetails(groupID, cityID, DepartmentID);
+
+            }
+           
+        }
+
+        protected void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!cmbGroup.SelectedValue.Equals(0))
+            {
+                int groupID = Convert.ToInt32(cmbGroup.SelectedValue);
+                int DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
+                int cityID = Convert.ToInt32(cmbCity.SelectedValue);
+                GetEmployeeDetails(groupID,cityID, DepartmentID);
             }
         }
 
@@ -99,14 +130,15 @@ namespace RainMaker.SMS
             {
                 int groupID = Convert.ToInt32(cmbGroup.SelectedValue);
                 int cityID=Convert.ToInt32(cmbCity.SelectedValue);
+                int DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
 
-                GetEmployeeDetails(groupID,cityID );
+                GetEmployeeDetails(groupID, cityID, DepartmentID);
             }
         }
 
         protected void grdEmployee_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
         {
-            GetEmployeeDetails(Convert.ToInt32(cmbGroup.SelectedValue), Convert.ToInt32(cmbCity.SelectedValue));
+            GetEmployeeDetails(Convert.ToInt32(cmbGroup.SelectedValue), Convert.ToInt32(cmbCity.SelectedValue), Convert.ToInt32(cmbDepartment.SelectedValue));
            
         }
 
@@ -165,7 +197,7 @@ namespace RainMaker.SMS
                             //string ContactNo = Convert.ToInt32(item["ComplaintID"].Text);
                             string contactno = item["SMSNo"].Text;
                             // contactno = "923343673008";
-                            objBSS.SendSMS("External SMS", contactno, tbSMS.Text, 1);
+                            objBSS.SendSMS(0,"External SMS", contactno, tbSMS.Text, 1);
                         }
                     }
                 }

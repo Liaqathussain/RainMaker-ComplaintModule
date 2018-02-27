@@ -20,7 +20,8 @@ namespace RainMaker.ComplainManagement
 
         private void Page_Load(object sender, EventArgs e)
         {
-            
+            if (this.Session["UserID"] != null)
+            {
 
             DataView set1 = new DataView();
             if (this.Session["ds"] != null)
@@ -76,6 +77,11 @@ namespace RainMaker.ComplainManagement
 
                 }
 
+            }
+            }
+            else
+            {
+                Response.Redirect("/Login.aspx", true);
             }
         }
        

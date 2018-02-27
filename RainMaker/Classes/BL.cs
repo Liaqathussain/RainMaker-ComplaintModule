@@ -12,6 +12,7 @@ namespace RainMaker
     public partial class BL
     {
         BSS_Service.Service1SoapClient objBSS = new BSS_Service.Service1SoapClient();
+        //BSS_ServiceLocal.Service1SoapClient objBSS = new BSS_ServiceLocal.Service1SoapClient();
 
 
         #region "SignUp Metronet"
@@ -91,7 +92,7 @@ namespace RainMaker
         {
             try
             {
-                dynamic dt = objBSS.Get_Cities();
+                dynamic dt = objBSS.GetEmployeeCities();
 
                 if (dt.Rows.Count > 0)
                 {
@@ -128,6 +129,30 @@ namespace RainMaker
                     dt.Rows.InsertAt(dr, 0);
                     DDGroups.DataSource = dt;
                     DDGroups.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void GetDepartment(DropDownList DDDepartment)
+        {
+            try
+            {
+                dynamic dt = objBSS.GetEmployeeDepartment();
+
+                if (dt.Rows.Count > 0)
+                {
+                    DDDepartment.DataTextField = "Department";
+                    DDDepartment.DataValueField = "DepartmentID";
+                    DataRow dr = dt.NewRow();
+                    dr[0] = 0;
+                    dr[1] = "Select Department Name";
+                    dt.Rows.InsertAt(dr, 0);
+                    DDDepartment.DataSource = dt;
+                    DDDepartment.DataBind();
                 }
             }
             catch (Exception ex)

@@ -19,7 +19,8 @@ namespace RainMaker.ComplainManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+             if (this.Session["UserID"] != null)
+            {
             if (!Page.IsPostBack)
             {
 
@@ -29,8 +30,12 @@ namespace RainMaker.ComplainManagement
                 SetInitialRow();
 
             }
-            
-            
+
+            }
+             else
+             {
+                 Response.Redirect("/Login.aspx", true);
+             } 
         }
 
         private void SetInitialRow()
